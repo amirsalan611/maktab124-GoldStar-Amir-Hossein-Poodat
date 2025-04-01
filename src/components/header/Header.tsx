@@ -1,8 +1,8 @@
 
 export default function Header() {
   return (
-    <div>
-      
+    <div >
+      <p>Hello header</p>
     </div>
   )
 }
