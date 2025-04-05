@@ -18,7 +18,7 @@ const playfair = Playfair_Display({
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="fa">
+    <html lang="fa" dir="rtl">
       <body className={playfair.className}>
         <div className="flex flex-col justify-between min-h-screen">
           <Header />
