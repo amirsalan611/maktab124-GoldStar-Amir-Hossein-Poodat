@@ -1,6 +1,7 @@
 import "./globals.css";
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
+import ProviderWrapper from "@/components/Provider/Provider";
 import { Playfair_Display } from "next/font/google";
 
 export const metadata = {
@@ -15,18 +16,20 @@ const playfair = Playfair_Display({
   weight: ["400", "700"],
 });
 
-
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="fa" dir="rtl">
       <body className={playfair.className}>
-        <div className="flex flex-col justify-between min-h-screen">
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </div>
+        <ProviderWrapper>
+          <div className="flex flex-col justify-between min-h-screen">
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </div>
+        </ProviderWrapper>
       </body>
     </html>
   );
 };
+
 export default layout;

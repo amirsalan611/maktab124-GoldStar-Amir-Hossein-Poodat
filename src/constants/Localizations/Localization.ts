@@ -4,7 +4,9 @@ export const FooterLocalization = { aboutUs: "درباره ما" ,
 };
 
 export const HeaderLocalization = {
-search : "جستجو"
+search : "جستجو",
+login : "ثبت نام | ورود",
+profile : "حساب کاربری"
 }
 
 export const DropDownLocalization = {

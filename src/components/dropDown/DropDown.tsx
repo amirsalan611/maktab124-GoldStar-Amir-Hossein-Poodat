@@ -20,7 +20,7 @@ export default function DropDown() {
         <button
           type="button"
           onClick={toggleDropdown}
-          className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50"
+          className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-gray-600 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-[rgba(121,135,255,0.4)]"
           id="menu-button"
           aria-expanded={isOpen}
           aria-haspopup="true"
@@ -80,8 +80,7 @@ export default function DropDown() {
             >
               License
             </a>
-            <form method="POST" action="#" role="none">
-            </form>
+            <form method="POST" action="#" role="none"></form>
           </div>
         </div>
       )}
