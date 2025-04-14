@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { toggleDarkMode } from "../redux/reducers/darkMode";
@@ -11,7 +11,7 @@ const DarkModeButton = () => {
   return (
     <StyledWrapper>
       <button
-        className={`toggle-btn ${isDark ? "dark-mode" : ""} rounded-2xl`}
+        className={`toggle-btn ${isDark ? "dark-mode" : ""}`}
         onClick={() => dispatch(toggleDarkMode())}
       >
         <div className="sun-rays" />
@@ -27,8 +27,8 @@ const StyledWrapper = styled.div`
   .toggle-btn {
     --bg: #e8e8e8;
     --fg: #212121;
-    background-color: var(--bg);
-    border-radius: 10px;
+    background-color: rgb(71, 71, 71);
+    border-radius: 16px;
     --dimensions: 50px;
     width: var(--dimensions);
     height: var(--dimensions);
@@ -55,7 +55,7 @@ const StyledWrapper = styled.div`
 
   .toggle-btn .main-circle::after {
     content: "";
-    background-color: var(--bg);
+    background-color: rgb(71, 71, 71);
     border-radius: 50%;
     --dimensions: 15px;
     width: var(--dimensions);
