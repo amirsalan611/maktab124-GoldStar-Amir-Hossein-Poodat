@@ -2,38 +2,48 @@
 import { RiShoppingCartLine } from "react-icons/ri";
 import DropDown from "../dropDown/DropDown";
 import Logo from "../logo/Logo";
-import SearchInput from "../SearchInput/SearchInput";
+import SearchInput from "../Shared/SearchInput/SearchInput";
 import { HeaderLocalization } from "@/constants/Localizations/Localization";
 import DarkModeButton from "../DarkModeButton/DarkModeButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function Header() {
-  const [logedIn, setLogedIn] = useState(true);
+  const [logedIn, setLogedIn] = useState(false);
+
+  useEffect(()=>{
+    const token = localStorage.getItem("token")
+    if (token) {
+      setLogedIn(true)
+    }
+  },[])
 
   return (
-    <div className="p-5 m-6 rounded-3xl back flex justify-between items-center relative">
+    <div className="p-5 m-6 rounded-3xl back flex justify-between items-center relative border border-[#B2A5FF]">
       <DropDown />
       <div className="w-[223px]">
         <Logo />
       </div>
-      <div className="flex flex-col gap-5 justify-center">
+      <div className="flex flex-col gap-5 justify-center items-center">
         <SearchInput />
       </div>
       <div className="flex gap-2 items-center">
         <div>
           {/* TODO IF IS SIGN IN SHOW PROFILE */}
-          {logedIn === true ? (
-            <div className="p-3 border border-[rgb(147,158,255)] rounded-2xl text-gray-500 hover:bg-[rgb(147,158,255)] hover:text-white bg-white cursor-pointer hover:border-indigo-400 transition-all duration-500 ease-in-out hover:shadow-[0_0_0_5px_rgba(129,140,248,0.3)]">
-              <p>{HeaderLocalization.login}</p>
-            </div>
+          {logedIn === false ? (
+            <Link href="/signIn">
+              <div className="p-3 border border-[#B2A5FF] rounded-2xl text-gray-500 hover:bg-[#B2A5FF] hover:text-white bg-white cursor-pointer transition-all duration-500 ease-in-out hover:shadow-[0_0_0_5px_rgba(129,140,248,0.3)]">
+                <p>{HeaderLocalization.login}</p>
+              </div>
+            </Link>
           ) : (
-            <div className="p-3 border border-[rgb(147,158,255)] rounded-2xl text-gray-500 hover:bg-[rgb(147,158,255)] hover:text-white hover:border-indigo-400 transition-all duration-500 ease-in-out hover:shadow-[0_0_0_5px_rgba(129,140,248,0.3)] bg-white cursor-pointer">
+            <div className="p-3 border border-[#B2A5FF] rounded-2xl text-gray-500 hover:bg-[#B2A5FF] hover:text-white hover:border-indigo-400 transition-all duration-500 ease-in-out hover:shadow-[0_0_0_5px_rgba(129,140,248,0.3)] bg-white cursor-pointer">
               {HeaderLocalization.profile}
             </div>
           )}
         </div>
 
-        <div className="p-3 border-1 rounded-2xl text-gray-500 hover:bg-[rgb(147,158,255)] hover:text-white hover:border-indigo-400 transition-all duration-500 ease-in-out hover:shadow-[0_0_0_5px_rgba(129,140,248,0.3)] bg-white cursor-pointer">
+        <div className="p-3 border-1 border-[#B2A5FF] rounded-2xl text-gray-500 hover:bg-[#B2A5FF] hover:text-white hover:border-indigo-400 transition-all duration-500 ease-in-out hover:shadow-[0_0_0_5px_rgba(129,140,248,0.3)] bg-white cursor-pointer">
           <RiShoppingCartLine className="text-2xl" />
         </div>
 

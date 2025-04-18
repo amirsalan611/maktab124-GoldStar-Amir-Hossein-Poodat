@@ -1,8 +1,8 @@
 import "./globals.css";
-import Footer from "@/components/footer/Footer";
-import Header from "@/components/header/Header";
+import Layout from "@/components/layout/layout";
 import ProviderWrapper from "@/components/Provider/Provider";
 import { Playfair_Display } from "next/font/google";
+import { ToastContainer } from "react-toastify";
 
 export const metadata = {
   title: "GoldStar",
@@ -20,12 +20,9 @@ const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="fa" dir="rtl">
       <body className={playfair.className}>
+        <ToastContainer />
         <ProviderWrapper>
-          <div className="flex flex-col justify-between min-h-screen">
-            <Header />
-            <main>{children}</main>
-            <Footer />
-          </div>
+          <Layout>{children}</Layout>
         </ProviderWrapper>
       </body>
     </html>

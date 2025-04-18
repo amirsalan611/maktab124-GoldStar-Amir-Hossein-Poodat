@@ -12,3 +12,58 @@ profile : "حساب کاربری"
 export const DropDownLocalization = {
     list : "دسته بندی محصولات"
 }
+
+export const dropDownLocalization = {
+  Sanitary: "بهداشتی",
+  Cosmetics: "لوازم آرایشی",
+  Hair: "مو",
+  Electrical: "لوازم الکتریکی",
+  Concealer: "کانسیلر",
+  PowderCream: "کرم پودر",
+  CheekBlush: "رژ گونه",
+  Mascara: "ریمل",
+  EyeShadow: "سایه چشم",
+  Eyeliner: "خط جشم",
+  EyePencil: "مداد چشم",
+  EyebrowPencil: "مداد ابرو",
+  Lipstick: "رژ لب",
+  Creams: "کرم دست و صورت",
+  BodyWash: "شامپو بدن",
+  Cleaner: "پاک کننده و شوینده",
+  Shampoo: "شامپو",
+  HairMask: "ماسک مو",
+  HairSerum: "سرم مو",
+  HairGel: "ژل مو",
+  HairDryer: "سشوار",
+  HairStraightener: "اتو مو",
+  trimmer: "ماشین مو تراش بدن",
+  Sunscreen:"کرم ضدآفتاب",
+};
+
+export const singInLocalization = {
+  dontHave: "حساب کاربری ندارید؟",
+  have: "قبلاً ثبت‌نام کرده‌اید؟",
+  signUpSide: "ثبت‌نام کنید",
+  signInSide: "وارد شوید",
+  signIn: "ورود به حساب کاربری",
+  submit: "ورود",
+  password: "رمز عبور",
+  signUp: "ثبت‌نام",
+  firstName: "نام",
+  lastName: "نام خانوادگی",
+  username: "نام کاربری",
+  phoneNumber: "شماره تلفن",
+  address: "آدرس",
+  success: "ورود موفقیت‌آمیز بود",
+  error: "خطا در ورود، لطفاً دوباره تلاش کنید",
+  empty: "لطفا همه بخش ها را پر کنید!",
+};
+
+export const inputLocalization = {
+  text: "لطفا این قسمت را پر نمایید !",
+};
+
+export const signUpLocalization = {
+  success: "ثبت نام با موفیقت انجام شد!",
+  error: "اطلاعات وارد شده صحیح نیست",
+};

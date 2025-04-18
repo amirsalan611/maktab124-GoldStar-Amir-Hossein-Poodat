@@ -27,7 +27,7 @@ const StyledWrapper = styled.div`
   }
 
   .input {
-    width: 100%;
+    width: 500px;
     height: 45px;
     padding: 0 1rem 0 3rem;
     border: 2px solid transparent;
