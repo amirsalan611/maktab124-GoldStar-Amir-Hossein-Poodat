@@ -1,6 +1,35 @@
 @import "tailwindcss";
 
-
 .back {
-    background-color: #dee2ff
+  background-color: #dad2ff;
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.5s ease-out;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.primary {
+  background-color: #DAD2FF;
+}
+.secondPrimary {
+  background-color: #b2a5ff;
 }
