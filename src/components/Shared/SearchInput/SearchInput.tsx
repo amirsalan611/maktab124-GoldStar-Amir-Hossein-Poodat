@@ -1,9 +1,47 @@
 "use client";
 import { HeaderLocalization } from "@/constants/Localizations/Localization";
+import { BASE_URL } from "@/services/api/api";
+import axios from "axios";
 import { RiSearch2Line } from "react-icons/ri";
-import styled from "styled-components";
+import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { StyledWrapper } from "./SearchInput.styles";
 
 const SearchInput = () => {
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [showResults, setShowResults] = useState<boolean>(false);
+
+  const { data: searchResults, isLoading } = useQuery({
+    queryKey: ["search", searchTerm],
+    queryFn: async () => {
+      if (searchTerm.trim() === "") return [];
+      const response = await axios.get(
+        `${BASE_URL}/api/products?discount[gt]=0&name=${searchTerm}`
+      );
+      return response.data.data.products;
+    },
+    enabled: searchTerm.trim().length > 0,
+  });
+
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (!isLoading && searchTerm.trim()) {
+      timeout = setTimeout(() => {
+        setShowResults(true);
+      }, 1000);
+    } else {
+      setShowResults(false);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [isLoading, searchTerm]);
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+    setShowResults(false);
+  };
+
   return (
     <StyledWrapper>
       <div className="group">
@@ -12,48 +50,31 @@ const SearchInput = () => {
           className="input outline-none bg-white"
           type="text"
           placeholder={HeaderLocalization.search}
+          onChange={handleSearch}
+          value={searchTerm}
         />
       </div>
+
+      {searchTerm.trim() && (
+        <div className="flex flex-col items-center gap-2 absolute bg-purple-50 w-1/3 border border-[#94a3b8] rounded-lg top-22 left-1/2 -translate-x-1/2 py-5 max-h-[300px] overflow-y-auto hide-scrollbar">
+          {isLoading || !showResults ? (
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-500"></div>
+          ) : searchResults?.length > 0 ? (
+            searchResults.map((item: any) => (
+              <div
+                key={item._id}
+                className="border-b border-[#94a3b8] w-2/3 text-center py-3 hover:bg-purple-100 cursor-pointer rounded-2xl shadow-2xl"
+              >
+                {item.name}
+              </div>
+            ))
+          ) : (
+            <div className="text-gray-500">{HeaderLocalization.noResults}</div>
+          )}
+        </div>
+      )}
     </StyledWrapper>
   );
 };
-
-const StyledWrapper = styled.div`
-  .group {
-    display: flex;
-    align-items: center;
-    position: relative;
-    max-width: 500px;
-  }
-
-  .input {
-    width: 500px;
-    height: 45px;
-    padding: 0 1rem 0 3rem;
-    border: 2px solid transparent;
-    border-radius: 10px;
-    color: #0d0c22;
-    transition: 0.5s ease;
-  }
-
-  .input::placeholder {
-    color: #94a3b8;
-  }
-
-  .input:focus,
-  .input:hover {
-    border-color: rgba(129, 140, 248);
-    background-color: #fff;
-    box-shadow: 0 0 0 5px rgb(129 140 248 / 30%);
-  }
-
-  .icon {
-    position: absolute;
-    left: 1rem;
-    color: #94a3b8;
-    pointer-events: none;
-    font-size: 1.2rem;
-  }
-`;
 
 export default SearchInput;

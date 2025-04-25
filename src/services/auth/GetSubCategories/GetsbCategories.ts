@@ -6,7 +6,6 @@ export const getSubCategories = async () => {
     const response = await axios.get(
       `${BASE_URL}/api/subcategories?limit=full`
     );
-    console.log(response)
     return response.data.data.subcategories;
   } catch (error) {
     throw error;

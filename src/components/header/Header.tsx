@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { RiShoppingCartLine } from "react-icons/ri";
 import DropDown from "../dropDown/DropDown";
 import Logo from "../logo/Logo";
@@ -9,17 +9,17 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function Header() {
-  const [logedIn, setLogedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
-  useEffect(()=>{
-    const token = localStorage.getItem("token")
+  useEffect(() => {
+    const token = localStorage.getItem("token");
     if (token) {
-      setLogedIn(true)
+      setLoggedIn(true);
     }
-  },[])
+  }, []);
 
   return (
-    <div className="p-5 m-6 rounded-3xl back flex justify-between items-center relative border border-[#B2A5FF]">
+    <div className="p-5 m-6 rounded-3xl bg-purple-50 flex justify-between items-center border border-[#B2A5FF] fixed top-0 left-0 right-0 z-50">
       <DropDown />
       <div className="w-[223px]">
         <Logo />
@@ -29,8 +29,7 @@ export default function Header() {
       </div>
       <div className="flex gap-2 items-center">
         <div>
-          {/* TODO IF IS SIGN IN SHOW PROFILE */}
-          {logedIn === false ? (
+          {loggedIn === false ? (
             <Link href="/signIn">
               <div className="p-3 border border-[#B2A5FF] rounded-2xl text-gray-500 hover:bg-[#B2A5FF] hover:text-white bg-white cursor-pointer transition-all duration-500 ease-in-out hover:shadow-[0_0_0_5px_rgba(129,140,248,0.3)]">
                 <p>{HeaderLocalization.login}</p>

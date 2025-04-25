@@ -6,6 +6,7 @@ import {
 } from "@/constants/Localizations/Localization";
 import { getCategoreis } from "@/services/auth/GetCategories/GetCategoreis";
 import { getSubCategories } from "@/services/auth/GetSubCategories/GetsbCategories";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function DropDown() {
@@ -18,7 +19,6 @@ export default function DropDown() {
     const fetchCategories = async () => {
       try {
         const categories = await getCategoreis();
-        console.log(categories);
         setCategories(categories);
       } catch (error) {
         console.error(error);
@@ -28,7 +28,6 @@ export default function DropDown() {
     const fetchSubCategories = async () => {
       try {
         const subcategories = await getSubCategories();
-        console.log(subcategories);
         setSubcategories(subcategories);
       } catch (error) {
         console.error(error);
@@ -63,7 +62,7 @@ export default function DropDown() {
         <button
           type="button"
           onClick={toggleDropdown}
-          className="inline-flex w-[300px] justify-center gap-x-1.5 rounded-3xl bg-[#DAD2FF] border-b border-[#B2A5FF] px-3 py-2 text-gray-600 shadow-xs ring-gray-300 hover:bg-[#B2A5FF] hover:text-white hover:border-indigo-400 transition-all duration-500 ease-in-out hover:shadow-[0_0_0_5px_rgba(129,140,248,0.3)]"
+          className="inline-flex w-[300px] justify-center gap-x-1.5 rounded-3xl bg-purple-50 border-b border-[#B2A5FF] px-3 py-2 text-gray-600 shadow-xs ring-gray-300 hover:bg-[#B2A5FF] hover:text-white hover:border-indigo-400 transition-all duration-500 ease-in-out hover:shadow-[0_0_0_5px_rgba(129,140,248,0.3)]"
         >
           {DropDownLocalization.list}
           <svg
@@ -81,38 +80,41 @@ export default function DropDown() {
         </button>
 
         {isOpen && (
-          <div className="absolute w-[1000px] left-1/2 -translate-x-1/2 px-5 py-2 z-10 mt-2 origin-top-right rounded-3xl bg-[#DAD2FF] ring-1 shadow-lg ring-black/5 animate-fade-up">
-            <div className="flex gap-3 justify-between">
+          <div className="absolute w-[1000px] left-1/2 -translate-x-1/2 z-10 mt-2 origin-top-right rounded-3xl bg-purple-50 border border-[#B2A5FF] shadow-xl animate-fade-up">
+            <div className="grid grid-cols-4 gap-4 p-6">
               {groupedSubcategories.map((category, index) => (
                 <div
                   key={index}
-                  className="relative group text-start w-full rounded-3xl"
+                  className="relative group"
                   onMouseEnter={() => setOpenSubIndex(index)}
                   onMouseLeave={() => setOpenSubIndex(null)}
                 >
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-center text-sm rounded-3xl text-gray-700 hover:bg-[#B2A5FF] hover:text-white font-sans"
+                  <Link
+                    href={`/products/${category._id}`}
+                    className="block p-4 text-lg font-medium text-gray-800 hover:bg-[#B2A5FF] hover:text-white transition-all duration-300 rounded-xl font-sans"
                   >
                     {dropDownLocalization[
                       category.name as keyof typeof dropDownLocalization
                     ] || category.name}
-                  </a>
+                  </Link>
                   {category.subcategories && openSubIndex === index && (
-                    <div className="left-full text-center top-0 rounded-3xl p-3 font-sans">
+                    <div className="mt-2 space-y-1 font-sans rounded-xl p-2">
                       {category.subcategories.map(
                         (
-                          sub: { name: keyof typeof dropDownLocalization },
+                          sub: {
+                            name: keyof typeof dropDownLocalization;
+                            _id: string;
+                          },
                           subIndex: number
                         ) => (
-                          <a
+                          <Link
                             key={subIndex}
-                            href="#"
-                            className="block px-4 py-2 text-sm rounded-2xl text-gray-700 hover:bg-[#B2A5FF] hover:text-white"
+                            href={`/products/${sub._id}`}
+                            className="block px-4 py-2 text-sm text-gray-600 hover:bg-[#B2A5FF] hover:text-white rounded-lg transition-all duration-300"
                             onClick={closeDropdown}
                           >
                             {dropDownLocalization[sub.name]}
-                          </a>
+                          </Link>
                         )
                       )}
                     </div>
