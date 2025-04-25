@@ -26,9 +26,86 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+.swiper-button-next {
+  padding: 30px 50px !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid #b2a5ff !important;
+  border-radius: 9999px !important;
+  color: #b2a5ff !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  position: absolute !important;
+  left: 250px !important;
+  top: 480px !important;
+}
+.swiper-button-prev {
+  padding: 30px 50px !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid #b2a5ff !important;
+  border-radius: 9999px !important;
+  color: #b2a5ff !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  position: absolute !important;
+  right: 250px !important;
+  top: 480px !important;
+}
+.grad1 {
+  background: linear-gradient(
+    to right,
+    #ffffff 0%,
+    #ffffff 5%,
+    #d095a1 50%,
+    #ffffff 95%,
+    #ffffff 100%
+  ),
+}
+
+.grad2 {
+  background: linear-gradient(
+    to right,
+    #ffffff 0%,
+    #ffffff 5%,
+    #abd0d6 50%,
+    #ffffff 95%,
+    #ffffff 100%
+  ),
+}
+.grad3 {
+  background: linear-gradient(
+    to right,
+    #ffffff 0%,
+    #ffffff 5%,
+    #30718d 50%,
+    #ffffff 95%,
+    #ffffff 100%
+  ),
+}
+.grad4 {
+  background: linear-gradient(
+    to right,
+    #ffffff 0%,
+    #ffffff 5%,
+    #b0d3d9 50%,
+    #ffffff 95%,
+    #ffffff 100%
+  ),
+}
+.grad5 {
+  background: linear-gradient(
+    to right,
+    #ffffff 0%,
+    #ffffff 5%,
+    #48a9c4 50%,
+    #ffffff 95%,
+    #ffffff 100%
+  ),
+}
 
 .primary {
-  background-color: #DAD2FF;
+  background-color: #dad2ff;
 }
 .secondPrimary {
   background-color: #b2a5ff;
