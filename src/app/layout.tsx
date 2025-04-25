@@ -3,6 +3,7 @@ import Layout from "@/components/layout/layout";
 import ProviderWrapper from "@/components/Provider/Provider";
 import { Playfair_Display } from "next/font/google";
 import { ToastContainer } from "react-toastify";
+import { Providers } from "./providers";
 
 export const metadata = {
   title: "GoldStar",
@@ -21,9 +22,11 @@ const layout = ({ children }: { children: React.ReactNode }) => {
     <html lang="fa" dir="rtl">
       <body className={playfair.className}>
         <ToastContainer />
-        <ProviderWrapper>
-          <Layout>{children}</Layout>
-        </ProviderWrapper>
+        <Providers>
+          <ProviderWrapper>
+            <Layout>{children}</Layout>
+          </ProviderWrapper>
+        </Providers>
       </body>
     </html>
   );
