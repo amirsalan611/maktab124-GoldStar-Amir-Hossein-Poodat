@@ -6,7 +6,8 @@ export const FooterLocalization = { aboutUs: "درباره ما" ,
 export const HeaderLocalization = {
 search : "جستجو",
 login : "ثبت نام | ورود",
-profile : "حساب کاربری"
+profile : "حساب کاربری",
+noResults : "محصولی یافت نشد"
 }
 
 export const DropDownLocalization = {
@@ -67,3 +68,32 @@ export const signUpLocalization = {
   success: "ثبت نام با موفیقت انجام شد!",
   error: "اطلاعات وارد شده صحیح نیست",
 };
+
+export const swiperLocalization = {
+  slide1: "زیبایی صدات میکنه...",
+  slide2:"درخشش واقعی موهات...",
+  slide3:"جادوی رنگ و هارمونی چشم گیر...",
+  slide4:"هر روز مثل روز آرایشگاه...",
+  slide5:"لمس لطافت روی پوست بدنت...",
+  view:"مشاهده محصولات",
+}
+
+export const HomePageLocalization = {
+  discount: "تخفیف های ویژه",
+  discountDescription: "با خرید از محصولات موجود در سایت، تخفیف های ویژه ویژه به شما ارائه می شود",
+  discountButton: "مشاهده تخفیف ها",
+}
+ export const homePageLocalization = {
+   toman: "تومان",
+   open: "مشاهده محصول",
+ };
+
+ export const productPageLocalization = {
+  notFound: "محصولی پیدا نشد",
+  more: "نمایش بیشتر",
+  noMore: "محصولات بیشتری وجود ندارد",
+ }
+ export const limitedSectionLocalization = {
+  watDoyouWant: "چه محصولی می‌خوای...؟",
+  go: "بریم ببینیم",
+ }
