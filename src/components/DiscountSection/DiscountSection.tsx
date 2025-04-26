@@ -9,8 +9,10 @@ import { Navigation } from "swiper/modules";
 import { Autoplay } from "swiper/modules";
 import more from "../../../public/image/SwiperImages/discount.png";
 import Button from "../Shared/button/Button";
+import { useRouter } from "next/navigation";
 
 export default function DiscountSection() {
+  const router = useRouter()
   const { data, isLoading, error } = useQuery({
     queryKey: ["products"],
     queryFn: GetProductsByDiscount,
@@ -40,14 +42,15 @@ export default function DiscountSection() {
             content={HomePageLocalization.discountButton}
             type="button"
             className=""
+            onClick={() => router.push("/discountPage")}
           />
         </div>
         <Swiper
-          className="flex w-full h-full overflow-x-auto gap-4 scrollbar-hide px-10 !py-10 !pr-10"
+          className="flex w-full h-full overflow-x-auto gap-4 scrollbar-hide !py-10 !px-8"
           modules={[Autoplay, Navigation]}
           loop={false}
           autoplay={{ delay: 5000 }}
-          spaceBetween={50}
+          spaceBetween={300}
           slidesPerView={4}
         >
           {data?.map((product: any) => (

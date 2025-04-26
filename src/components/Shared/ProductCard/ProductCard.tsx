@@ -11,7 +11,7 @@ export default function ProductCard({
 }) {
   return (
     <div
-      className="flex flex-col items-center justify-center bg-purple-50 border border-[#B2A5FF] gap-2 rounded-3xl p-4 relative max-w-[400px] hover:scale-105 transition-all duration-300"
+      className="flex flex-col items-center justify-center bg-purple-50 border border-[#B2A5FF] gap-2 rounded-3xl p-4 relative w-[400px] hover:scale-105 transition-all duration-300"
       key={key}
     >
       <img

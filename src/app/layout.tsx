@@ -19,7 +19,7 @@ const playfair = Playfair_Display({
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="fa" dir="rtl">
+    <html lang="fa" dir="rtl" className="font-sans">
       <body className={playfair.className}>
         <ToastContainer />
         <Providers>

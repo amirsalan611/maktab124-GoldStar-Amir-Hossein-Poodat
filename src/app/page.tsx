@@ -5,7 +5,7 @@ import React from 'react'
 
 export default function page() {
   return (
-    <div className="w-screen">
+    <div className="max-w-screen">
       <HomeSwiper />
       <DiscountSection />
       <LimitedSection />

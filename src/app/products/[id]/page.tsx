@@ -1,5 +1,4 @@
 "use client";
-
 import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState, use } from "react";
 import { getProducts } from "@/services/auth/getProducts/GetProducts";
@@ -7,13 +6,11 @@ import { getCategoreis } from "@/services/auth/GetCategories/GetCategoreis";
 import { getSubCategories } from "@/services/auth/GetSubCategories/GetsbCategories";
 import ProductCard from "@/components/Shared/ProductCard/ProductCard";
 import Button from "@/components/Shared/button/Button";
-import {
-  homePageLocalization,
-  productPageLocalization,
-} from "@/constants/Localizations/Localization";
-import { notFound } from "next/navigation";
+import { productPageLocalization } from "@/constants/Localizations/Localization";
 
-export default function Page(props: { params: Promise<{ id: string }> }) {
+export default function Page(props: {
+  params: Promise<{ id: string}>;
+}) {
   const { id } = use(props.params);
   const [page, setPage] = useState(1);
   const [type, setType] = useState<"category" | "subcategory" | null>(null);
@@ -42,7 +39,8 @@ export default function Page(props: { params: Promise<{ id: string }> }) {
 
   const { data: products, isLoading } = useQuery({
     queryKey: ["products", id, type, page],
-    queryFn: () => getProducts({ id, type: type!, page: page }),
+    queryFn: () =>
+      getProducts({ id, type: type!, page: page}),
     enabled: !!type,
   });
 
@@ -54,8 +52,6 @@ export default function Page(props: { params: Promise<{ id: string }> }) {
           : [...prev, ...products.data.products]
       );
     }
-    console.log(products?.page);
-    console.log(allProducts);
   }, [products, page]);
 
   if (isLoading || !type) {
