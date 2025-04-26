@@ -5,15 +5,16 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import slide1 from "../../../public/image/SwiperImages/slide1.jpg";
 import slide2 from "../../../public/image/SwiperImages/slide2.jpg";
-import slide3 from "../../../public/image/SwiperImages/slide3.jpg";
 import slide4 from "../../../public/image/SwiperImages/slide4.jpg";
 import slide5 from "../../../public/image/SwiperImages/slide5.jpg";
 
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { swiperLocalization } from "@/constants/Localizations/Localization";
 import Button from "../Shared/button/Button";
+import { useRouter } from "next/navigation";
 
 export default function HomeSwiper() {
+  const router = useRouter();
   return (
     <Swiper
       className="w-full mt-5"
@@ -38,7 +39,8 @@ export default function HomeSwiper() {
           <Button
             className="bg-primary text-black"
             content={swiperLocalization.view}
-            type={undefined}
+            type="button"
+            onClick={() => router.push("/products/67fa84d5cdb03e7be7df00f1")}
           />
         </div>
       </SwiperSlide>
@@ -55,24 +57,8 @@ export default function HomeSwiper() {
           <Button
             className="bg-primary text-black"
             content={swiperLocalization.view}
-            type={undefined}
-          />
-        </div>
-      </SwiperSlide>
-      <SwiperSlide className="w-1/3 h-full grad3 pt-5 ">
-        <img
-          src={slide3.src}
-          alt="Slide 3"
-          className="w-1/3 h-full rounded-3xl m-auto"
-        />
-        <div className="w-1/3 m-auto p-5 text-2xl h-full flex justify-between items-center gap-5 z-50">
-          <p className="text-black bg-gradient-to-l from-white py-3 px-5 rounded-3xl">
-            {swiperLocalization.slide3}
-          </p>
-          <Button
-            className="bg-primary text-black"
-            content={swiperLocalization.view}
-            type={undefined}
+            type="button"
+            onClick={() => router.push("/products/67fa8504cdb03e7be7df00f5")}
           />
         </div>
       </SwiperSlide>
@@ -89,7 +75,8 @@ export default function HomeSwiper() {
           <Button
             className="bg-primary text-black"
             content={swiperLocalization.view}
-            type={undefined}
+            type="button"
+            onClick={() => router.push("/products/67fa851acdb03e7be7df00f9")}
           />
         </div>
       </SwiperSlide>
@@ -106,7 +93,8 @@ export default function HomeSwiper() {
           <Button
             className="bg-primary text-black"
             content={swiperLocalization.view}
-            type={undefined}
+            type="button"
+            onClick={() => router.push("/products/67fa84c2cdb03e7be7df00ed")}
           />
         </div>
       </SwiperSlide>
