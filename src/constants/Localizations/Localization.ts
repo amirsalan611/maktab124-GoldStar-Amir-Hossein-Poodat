@@ -97,3 +97,16 @@ export const HomePageLocalization = {
   watDoyouWant: "چه محصولی می‌خوای...؟",
   go: "بریم ببینیم",
  }
+ export const singleProductLocalization = {
+  name: "نام محصول :",
+  description: "توضیحات محصول",
+  price: "قیمت",
+  color: "رنگ :",
+  discount: "تخفیف محصول",
+  addToCart: "افزودن به سبد خرید",
+  brand: "برند :",
+  totalPrice: "قیمت کل :",
+  totalDiscount: "تخفیف کل :",
+  count: "تعداد",
+
+ }

@@ -2,9 +2,11 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import darkModeReducer from "./reducers/darkMode";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import colorSelectedReducer from "./reducers/colorSelected";
 
 const combinedReducers = combineReducers({
   darkMode: darkModeReducer,
+  colorSelected: colorSelectedReducer,
 });
 
 const persistConfig = {
