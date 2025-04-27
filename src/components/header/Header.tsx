@@ -46,7 +46,7 @@ export default function Header() {
           <RiShoppingCartLine className="text-2xl" />
         </div>
 
-        <DarkModeButton />
+        {/* <DarkModeButton /> */}
       </div>
     </div>
   );
