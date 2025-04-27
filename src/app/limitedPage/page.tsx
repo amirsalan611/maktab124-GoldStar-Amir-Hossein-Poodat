@@ -1,19 +1,26 @@
 "use client";
+
 import Button from "@/components/Shared/button/Button";
 import ProductCard from "@/components/Shared/ProductCard/ProductCard";
 import { productPageLocalization } from "@/constants/Localizations/Localization";
 import { getProducts } from "@/services/auth/getProducts/GetProducts";
 import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
-import discount from "../../../public/image/Pink Brown Cosmetic Sales Promotion Banner.jpg";
+import { useSearchParams } from "next/navigation";
 
 export default function Page() {
   const [allProducts, setAllProducts] = useState<any[]>([]);
   const [page, setPage] = useState(1);
+  const searchParams = useSearchParams();
+  const price = searchParams.get("price");
 
   const { data: products, isLoading } = useQuery({
-    queryKey: ["products"],
-    queryFn: () => getProducts({ discount: "true", page: 1 }),
+    queryKey: ["products", price],
+    queryFn: () =>
+      getProducts({
+        [price === "500" ? "price500" : "priceOneM"]: true,
+        page: 1,
+      }),
   });
 
   useEffect(() => {
@@ -56,15 +63,7 @@ export default function Page() {
 
   return (
     <div>
-      <div className="w-screen h-full container"></div>
       <div className="p-10 flex flex-col gap-10">
-        <div className="z-20  overflow-hidden">
-          <img
-            src={discount.src}
-            alt="discount image"
-            className="w-1/2 rounded-4xl m-auto"
-          />
-        </div>
         {allProducts?.length ? (
           <div className="grid grid-cols-4 gap-4 gap-y-10 w-full bg-white z-10 justify-items-center p-5 shadow-white shadow-2xl rounded-4xl">
             {allProducts.map((product: any) => (
