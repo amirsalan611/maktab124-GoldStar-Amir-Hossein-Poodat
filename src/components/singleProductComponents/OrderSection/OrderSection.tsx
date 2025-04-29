@@ -9,7 +9,7 @@ import { Product } from "../ProductInterFace/ProductInterFace";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { setColorSelected } from "@/components/redux/reducers/colorSelected";
-
+import Swal from "sweetalert2";
 export default function OrderSection({ product }: { product: Product }) {
   const [count, setCount] = React.useState(0);
   const ProductId = product._id;
@@ -24,28 +24,53 @@ export default function OrderSection({ product }: { product: Product }) {
 
     const index = cart.findIndex((item: any) => item._id === product._id);
 
-if (count > 0) {
-  if (colorSelected) {
-    if (index !== -1) {
-      if (cart[index].color === colorSelected) {
-        cart[index].count += count;
-        toast.success(addTocartLocalization.success);
+    if (count > 0) {
+      if (colorSelected) {
+        if (index !== -1) {
+          if (cart[index].color === colorSelected) {
+            cart[index].count += count;
+            toast.success(addTocartLocalization.success);
+          } else {
+            cart.push(newProduct);
+            toast.success(addTocartLocalization.colorSuccess);
+          }
+        } else {
+          cart.push(newProduct);
+          toast.success(addTocartLocalization.added);
+        }
+
+        localStorage.setItem("carts", JSON.stringify(cart));
+
+Swal.fire({
+  title: singleProductLocalization.success,
+  text: singleProductLocalization.successText,
+  icon: "success",
+  showCancelButton: true,
+  confirmButtonText: singleProductLocalization.successButton,
+  cancelButtonText: singleProductLocalization.successCancel,
+  buttonsStyling: false,
+  customClass: {
+    container: "custom-swal-container",
+    popup: "rounded-3xl",
+    confirmButton: "bg-[#B2A5FF] text-white px-4 py-2 rounded-lg cursor-pointer hover:bg-[#B2A5FF]/80",
+    cancelButton: "bg-gray-500 text-white px-4 py-2 rounded-lg mr-5 cursor-pointer hover:bg-gray-500/80",
+  },
+}).then((result) => {
+  if (result.isConfirmed) {
+    window.location.href = "/carts";
+  }
+  if (result.isDismissed) {
+    window.location.reload();
+  }
+});
+
+
+        dispatch(setColorSelected(""));
+        setCount(0);
       } else {
-        cart.push(newProduct);
-        toast.success(addTocartLocalization.colorSuccess);
+        toast.error(addTocartLocalization.colorNotSelected);
       }
     } else {
-      cart.push(newProduct);
-      toast.success(addTocartLocalization.added);
-    }
-
-    localStorage.setItem("carts", JSON.stringify(cart));
-    dispatch(setColorSelected(""));
-    setCount(0);
-  } else {
-    toast.error(addTocartLocalization.colorNotSelected);
-  }
-} else {
       toast.error(addTocartLocalization.countNotSelected);
     }
   };

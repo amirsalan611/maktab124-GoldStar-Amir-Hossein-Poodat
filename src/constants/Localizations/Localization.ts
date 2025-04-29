@@ -110,6 +110,10 @@ export const HomePageLocalization = {
   totalDiscount: "تخفیف کل :",
   count: "تعداد",
   details: "جزئیات محصول",
+  success: "عملیات موفقیت آمیز بود",
+  successText: "برای مشاهده سبد خرید کلیک کنید",
+  successButton: "مشاهده سبد خرید",
+  successCancel: "ادامه خرید",
  }
 
  export const addTocartLocalization = {

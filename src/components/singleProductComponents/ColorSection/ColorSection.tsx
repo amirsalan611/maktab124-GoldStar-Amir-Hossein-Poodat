@@ -29,7 +29,7 @@ export default function ColorSection({ product }: { product: Product }) {
         {colors?.map((color) => (
           <label
             key={color}
-            className="h-10 w-full flex items-center justify-center border border-gray-500 rounded-2xl cursor-pointer transition-colors overflow-hidden hover:bg-[#B2A5FF] hover:text-white"
+            className="h-10 w-full flex items-center justify-center cursor-pointer transition-colors overflow-hidden"
           >
             <input
               type="radio"
@@ -38,7 +38,7 @@ export default function ColorSection({ product }: { product: Product }) {
               className="hidden peer"
               onChange={() => dispatch(setColorSelected({ color }))}
             />
-            <p className="peer-checked:bg-[#B2A5FF] peer-checked:text-white px-3 py-2 rounded-2xl transition-colors min-w-[100px] text-center">
+            <p className="peer-checked:bg-[#B2A5FF] peer-checked:text-white px-3 py-1 transition-colors min-w-[100px] text-center border-[1px] border-gray-500 rounded-[10px] hover:bg-[#B2A5FF] hover:text-white">
               {color}
             </p>
           </label>
