@@ -1,11 +1,17 @@
 import discount from "../../../../public/image/off.png";
 import { homePageLocalization, singleProductLocalization } from "@/constants/Localizations/Localization";
 import { Product } from "../ProductInterFace/ProductInterFace";
+import { BiCaretLeft } from "react-icons/bi";
 
 export default function PriceSection({ product }: { product: Product }) {
   return (
     <div className="mt-5">
-      <p className="text-gray-500 text-lg">{singleProductLocalization.price}</p>
+      <div className="flex gap-2 items-center">
+        <BiCaretLeft />
+        <h1 className="text-2xl font-bold">
+          {singleProductLocalization.price}
+        </h1>
+      </div>
       {product.discount > 0 ? (
         <div className="flex flex-col gap-5">
           <div className="flex gap-2 items-center">

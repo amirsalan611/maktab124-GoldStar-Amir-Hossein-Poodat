@@ -4,6 +4,7 @@ import { Product } from "../ProductInterFace/ProductInterFace";
 import { singleProductLocalization } from "@/constants/Localizations/Localization";
 import { setColorSelected } from "@/components/redux/reducers/colorSelected";
 import { useDispatch } from "react-redux";
+import { BiCaretLeft } from "react-icons/bi"; 
 
 export default function ColorSection({ product }: { product: Product }) {
   const colors = product.colors;
@@ -11,8 +12,11 @@ export default function ColorSection({ product }: { product: Product }) {
   console.log(colors)
   return (
     <div className="flex items-center gap-2">
-      <p className="text-gray-500 text-lg">{singleProductLocalization.color}</p>
-      <div className="flex justify-center items-center gap-2 max-w-[400px] overflow-x-auto scrollbar-hide">
+      <div className="flex gap-2 items-center">
+        <BiCaretLeft />
+        <p className="text-2xl font-bold">{singleProductLocalization.color}</p>
+      </div>
+      <div className="grid grid-cols-2 justify-center items-center gap-2 max-w-[400px] overflow-x-auto scrollbar-hide">
         {colors?.map((color) => (
           <label
             key={color}

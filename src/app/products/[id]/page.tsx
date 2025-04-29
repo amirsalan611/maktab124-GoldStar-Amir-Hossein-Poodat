@@ -87,7 +87,9 @@ export default function Page(props: {
       {allProducts?.length ? (
         <div className="grid grid-cols-4 gap-4 gap-y-10 w-full">
           {allProducts.map((product: any) => (
-            <ProductCard product={product} key={product._id} />
+            <div key={product._id}>
+              <ProductCard product={product} />
+            </div>
           ))}
         </div>
       ) : (

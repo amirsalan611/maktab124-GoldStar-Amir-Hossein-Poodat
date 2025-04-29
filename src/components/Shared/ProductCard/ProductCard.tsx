@@ -6,16 +6,13 @@ import { useRouter } from "next/navigation";
   import discount from "../../../../public/image/off.png";
 export default function ProductCard({
   product,
-  key,
 }: {
   product: any;
-  key?: string;
 }) {
   const router = useRouter();
   return (
     <div
-      className="flex flex-col items-center justify-center bg-purple-50 border border-[#B2A5FF] gap-2 rounded-3xl p-4 relative w-[400px] hover:scale-105 transition-all duration-300"
-      key={key}
+      className="flex flex-col items-center justify-center bg-purple-50 border border-[#B2A5FF] gap-2 rounded-3xl p-4 relative w-[400px] h-[480px] hover:scale-105 transition-all duration-300"
     >
       <img
         src={`http://${product.images[0]}`}

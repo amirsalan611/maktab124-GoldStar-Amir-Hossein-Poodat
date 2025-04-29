@@ -24,7 +24,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   return (
     <div className="overflow-x-hidden flex flex-col justify-center items-center p-10 ">
       <section className="w-full flex justify-center overflow-x-hidden items-center gap-10 border-b border-gray-300 pb-10">
-        <div className="w-1/3 h-full border overflow-hidden border-gray-500 rounded-xl">
+        <div className="w-1/3 h-full border overflow-hidden border-gray-500 rounded-xl self-start">
           <SingleProductSwiper images={product.images} />
         </div>
         <div className="w-2/3 self-start">
@@ -33,8 +33,8 @@ export default async function Page({ params }: { params: { id: string } }) {
             <div className="flex flex-col gap-10">
               <PriceSection product={product} />
               <ColorSection product={product} />
-              <DitailsSection product={product} />
             </div>
+              <DitailsSection product={product} />
             <div className="border border-gray-500 rounded-xl absolute top-5 left-10 w-[250px] h-[300px] p-5">
               <OrderSection product={product} />
             </div>

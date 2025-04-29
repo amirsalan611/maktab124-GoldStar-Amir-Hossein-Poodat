@@ -108,5 +108,5 @@ export const HomePageLocalization = {
   totalPrice: "قیمت کل :",
   totalDiscount: "تخفیف کل :",
   count: "تعداد",
-
+  details: "جزئیات محصول",
  }

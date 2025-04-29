@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import to500 from "../../../public/image/to500.png";
 import to1m from "../../../public/image/to1m.png";
@@ -14,7 +14,7 @@ export default function LimitedSection() {
       <h2 className=" text-white text-4xl bg-gradient-to-l from-[#f2b3b5] py-7 px-10">
         {limitedSectionLocalization.watDoyouWant}
       </h2>
-      <div className="flex items-center justify-center gap-10 my-10 font-sans">
+      <div className="flex items-center justify-center gap-10 my-10">
         <div className="relative w-1/3">
           <img src={to500.src} alt="to500" className="rounded-3xl " />
           <Button

@@ -4,6 +4,13 @@
   background-color: #dad2ff;
 }
 
+@font-face {
+  font-family: "IranSans";
+  src: url("/public/fonts/Vazirmatn-UI-FD-Thin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
 @keyframes fade-up {
   0% {
     opacity: 0;
@@ -13,6 +20,10 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+body,html{
+  font-family: "IranSans";
 }
 
 .animate-fade-up {

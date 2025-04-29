@@ -23,7 +23,7 @@ export default function AuthPage() {
               : "translate-x-[500px] rounded-l-3xl"
           }`}
         >
-          <div className="w-full h-full relative flex flex-col items-center justify-center gap-5 text-white font-sans">
+          <div className="w-full h-full relative flex flex-col items-center justify-center gap-5 text-white">
             <Image
               src={signup}
               alt="Login"
@@ -49,7 +49,7 @@ export default function AuthPage() {
               : "translate-x-0 rounded-r-3xl"
           }`}
         >
-          <div className="w-full h-full relative flex flex-col items-center justify-center gap-5 text-white font-sans">
+          <div className="w-full h-full relative flex flex-col items-center justify-center gap-5 text-white">
             <Image
               src={signin}
               alt="Login"

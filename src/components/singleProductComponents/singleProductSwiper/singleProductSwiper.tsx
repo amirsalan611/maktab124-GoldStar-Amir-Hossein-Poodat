@@ -25,11 +25,11 @@ export default function SingleProductSwiper({ images }: { images: string[] }) {
         }}
         pagination={true}
         modules={[EffectCoverflow, Pagination]}
-        className="mySwiper !border-gray-200 !rounded-lg !py-20 !h-full"
+        className="mySwiper !border-gray-200 !rounded-lg !py-10 !h-full"
       >
         {images?.map((image, index) => {
           return (
-            <SwiperSlide key={index} className="!w-1/2 !h-full">
+            <SwiperSlide key={index} className="!w-2/3 !h-full">
               <img
                 src={`http://${image}`}
                 alt={`image-[${index}]`}

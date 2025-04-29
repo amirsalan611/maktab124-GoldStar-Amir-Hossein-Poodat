@@ -1,7 +1,7 @@
 import "./globals.css";
 import Layout from "@/components/layout/layout";
 import ProviderWrapper from "@/components/Provider/Provider";
-import { Playfair_Display } from "next/font/google";
+import localFont from "next/font/local";
 import { ToastContainer } from "react-toastify";
 import { Providers } from "./providers";
 
@@ -12,15 +12,20 @@ export const metadata = {
   },
 };
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "700"],
+const vazir = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Vazirmatn-UI-FD-Medium.woff2",
+      weight: "400",
+    },
+  ],
+  variable: "--font-vazir",
 });
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="fa" dir="rtl" className="font-sans">
-      <body className={playfair.className}>
+    <html lang="fa" dir="rtl">
+      <body className={`antialiased ${vazir.className}`}>
         <ToastContainer />
         <Providers>
           <ProviderWrapper>

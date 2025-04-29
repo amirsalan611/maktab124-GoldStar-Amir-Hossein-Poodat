@@ -91,14 +91,14 @@ export default function DropDown() {
                 >
                   <Link
                     href={`/products/${category._id}`}
-                    className="block p-4 text-lg font-medium text-gray-800 hover:bg-[#B2A5FF] hover:text-white transition-all duration-300 rounded-xl font-sans"
+                    className="block p-4 text-lg font-medium text-gray-800 hover:bg-[#B2A5FF] hover:text-white transition-all duration-300 rounded-xl"
                   >
                     {dropDownLocalization[
                       category.name as keyof typeof dropDownLocalization
                     ] || category.name}
                   </Link>
                   {category.subcategories && openSubIndex === index && (
-                    <div className="mt-2 space-y-1 font-sans rounded-xl p-2">
+                    <div className="mt-2 space-y-1 rounded-xl p-2">
                       {category.subcategories.map(
                         (
                           sub: {

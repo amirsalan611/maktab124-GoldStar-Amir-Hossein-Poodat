@@ -12,7 +12,7 @@ import Button from "../Shared/button/Button";
 import { useRouter } from "next/navigation";
 
 export default function DiscountSection() {
-  const router = useRouter()
+  const router = useRouter();
   const { data, isLoading, error } = useQuery({
     queryKey: ["products"],
     queryFn: GetProductsByDiscount,
@@ -54,7 +54,7 @@ export default function DiscountSection() {
           slidesPerView={4}
         >
           {data?.map((product: any) => (
-            <SwiperSlide className="font-sans" key={product._id}>
+            <SwiperSlide key={product._id}>
               <ProductCard product={product} />
             </SwiperSlide>
           ))}
