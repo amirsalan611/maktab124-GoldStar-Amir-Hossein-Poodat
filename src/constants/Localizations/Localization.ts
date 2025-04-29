@@ -58,6 +58,7 @@ export const singInLocalization = {
   success: "ورود موفقیت‌آمیز بود",
   error: "خطا در ورود، لطفاً دوباره تلاش کنید",
   empty: "لطفا همه بخش ها را پر کنید!",
+  signInError: "خطای غیرمنتظره‌ای رخ داده است.",
 };
 
 export const inputLocalization = {
@@ -109,4 +110,13 @@ export const HomePageLocalization = {
   totalDiscount: "تخفیف کل :",
   count: "تعداد",
   details: "جزئیات محصول",
+ }
+
+ export const addTocartLocalization = {
+  success: "محصول در سبد خرید بود و تعداد آن افزایش یافت",
+  added: "محصول به سبد خرید اضافه شد",
+  colorError: "رنگ محصول را انتخاب کنید",
+  colorSuccess: "محول با رنگ جدید به سبد خرید اضافه شد",
+  colorNotSelected: "رنگ محصول را انتخاب کنید",
+  countNotSelected: "تعداد محصول را وارد کنید",
  }
