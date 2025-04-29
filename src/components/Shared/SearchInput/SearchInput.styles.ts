@@ -14,7 +14,7 @@ export const StyledWrapper = styled.div`
     padding: 0 1rem 0 3rem;
     border: 2px solid transparent;
     border-radius: 10px;
-    color: #0d0c22;
+    color: #B2A5FF;
     transition: 0.5s ease;
   }
 

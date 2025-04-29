@@ -46,7 +46,7 @@ const SearchInput = () => {
 
   return (
     <StyledWrapper>
-      <div className="group">
+      <div className="group hover:ring-1 transition-all duration-300 ring-[3px] ring-[#B2A5FF] rounded-[10px]">
         <RiSearch2Line className="icon" />
         <input
           className="input outline-none bg-white"
