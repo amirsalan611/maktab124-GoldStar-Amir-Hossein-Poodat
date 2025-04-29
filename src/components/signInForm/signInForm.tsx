@@ -5,6 +5,8 @@ import Input from "@/components/Shared/input/input";
 import { singInLocalization } from "@/constants/Localizations/Localization";
 import { SignIn } from "@/services/auth/SignInHandler/SignInHandler";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { saveUserData } from "../redux/reducers/userData";
 
 interface FormData {
   userName: string;
@@ -12,6 +14,7 @@ interface FormData {
 }
 
 export default function SignInForm() {
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState<FormData>({
     userName: "",
     password: "",
@@ -21,7 +24,7 @@ export default function SignInForm() {
     userName: false,
     password: false,
     incorrect: false,
-    empty: false
+    empty: false,
   });
 
   const [loading, setLoading] = useState(false);
@@ -53,14 +56,20 @@ export default function SignInForm() {
 
     try {
       const result = await SignIn(formData.userName, formData.password);
-      console.log(result.data);
+      const { user } = result.data.data;
+      const { accessToken, refreshToken } = result.data.token;
+      console.log(user)
       if (result.status === 200) {
         localStorage.setItem("token", result.data.token.accessToken);
-        localStorage.setItem(
-          "adminData",
-          JSON.stringify(result.data.data.user)
+        dispatch(
+          saveUserData({
+            ...user,
+            accessToken,
+            refreshToken,
+          })
         );
         toast.success(singInLocalization.success);
+
         window.location.href = "/";
       }
     } catch (error: any) {
@@ -68,7 +77,7 @@ export default function SignInForm() {
         setErrors({ ...errors, incorrect: true });
         toast.error(singInLocalization.error);
       } else {
-        toast.error("خطای غیرمنتظره‌ای رخ داده است.");
+        toast.error(singInLocalization.signInError);
       }
     } finally {
       setLoading(false);
@@ -97,7 +106,11 @@ export default function SignInForm() {
       />
       {errors.incorrect ? (
         <p className="text-center text-red-500">{singInLocalization.error}</p>
-      ) : errors.empty ? <p className="text-center text-red-500">{singInLocalization.empty}</p> : ""}
+      ) : errors.empty ? (
+        <p className="text-center text-red-500">{singInLocalization.empty}</p>
+      ) : (
+        ""
+      )}
       <Button
         content={loading ? "در حال ورود..." : singInLocalization.submit}
         type="submit"
@@ -106,11 +119,3 @@ export default function SignInForm() {
     </form>
   );
 }
-
-
-
-
-
-
-
-

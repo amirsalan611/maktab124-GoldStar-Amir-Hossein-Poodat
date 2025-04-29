@@ -7,8 +7,13 @@ import { HeaderLocalization } from "@/constants/Localizations/Localization";
 import DarkModeButton from "../DarkModeButton/DarkModeButton";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { clearUserData } from "../redux/reducers/userData";
+import { persistor } from "../redux/store";
+import Cookies from "js-cookie";
 
 export default function Header() {
+  const dispatch = useDispatch();
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -17,6 +22,17 @@ export default function Header() {
       setLoggedIn(true);
     }
   }, []);
+
+const handleLogOut = async () => {
+  dispatch(clearUserData());
+
+  Cookies.remove("userData");
+  Cookies.remove("darkMode");
+  localStorage.removeItem("token")
+
+  await persistor.flush();
+  window.location.href = "/signIn";
+};
 
   return (
     <div className="p-5 m-6 rounded-3xl bg-purple-50 flex justify-between items-center border border-[#B2A5FF] fixed top-0 left-0 right-0 z-50">
@@ -36,7 +52,10 @@ export default function Header() {
               </div>
             </Link>
           ) : (
-            <div className="p-3 border border-[#B2A5FF] rounded-2xl text-gray-500 hover:bg-[#B2A5FF] hover:text-white hover:border-indigo-400 transition-all duration-500 ease-in-out hover:shadow-[0_0_0_5px_rgba(129,140,248,0.3)] bg-white cursor-pointer">
+            <div
+              onClick={handleLogOut}
+              className="p-3 border border-[#B2A5FF] rounded-2xl text-gray-500 hover:bg-[#B2A5FF] hover:text-white hover:border-indigo-400 transition-all duration-500 ease-in-out hover:shadow-[0_0_0_5px_rgba(129,140,248,0.3)] bg-white cursor-pointer"
+            >
               {HeaderLocalization.profile}
             </div>
           )}

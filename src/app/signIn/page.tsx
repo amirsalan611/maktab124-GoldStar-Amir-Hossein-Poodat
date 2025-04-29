@@ -1,6 +1,5 @@
 "use client";
 
-import Input from "@/components/Shared/input/input";
 import { useState } from "react";
 import signup from "../../../public/image/signup.svg";
 import signin from "../../../public/image/signin.svg";
@@ -12,6 +11,7 @@ import SignUpForm from "@/components/signUpForm/signUpForm";
 
 export default function AuthPage() {
   const [isSignIn, setIsSignIn] = useState(true);
+
 
   return (
     <div className="w-screen h-screen flex justify-center items-center bg-gray-100">
