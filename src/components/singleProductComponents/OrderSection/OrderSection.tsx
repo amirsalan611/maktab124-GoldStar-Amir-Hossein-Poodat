@@ -51,7 +51,7 @@ if (count > 0) {
   };
 
   return (
-    <div className="flex flex-col justify-between gap-3 h-full">
+    <div className="flex flex-col justify-between gap-3 h-full ">
       <div className="border-b pb-5 border-gray-300 flex flex-col gap-3">
         <div className="flex items-center justify-between gap-2">
           <h2>{singleProductLocalization.totalPrice}</h2>

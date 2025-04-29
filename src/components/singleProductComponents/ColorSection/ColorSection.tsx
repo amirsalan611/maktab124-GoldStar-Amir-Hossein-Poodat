@@ -1,15 +1,24 @@
-"use client"
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import { Product } from "../ProductInterFace/ProductInterFace";
 import { singleProductLocalization } from "@/constants/Localizations/Localization";
 import { setColorSelected } from "@/components/redux/reducers/colorSelected";
 import { useDispatch } from "react-redux";
-import { BiCaretLeft } from "react-icons/bi"; 
+import { BiCaretLeft } from "react-icons/bi";
 
 export default function ColorSection({ product }: { product: Product }) {
   const colors = product.colors;
-  const dispatch = useDispatch()
-  console.log(colors)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (colors?.length === 1) {
+      dispatch(setColorSelected({ color: colors[0] }));
+    }
+  }, [colors, dispatch]);
+
+  if (!colors || colors.length === 0) return null;
+  if (colors.length === 1) return null;
+
   return (
     <div className="flex items-center gap-2">
       <div className="flex gap-2 items-center">
@@ -20,7 +29,7 @@ export default function ColorSection({ product }: { product: Product }) {
         {colors?.map((color) => (
           <label
             key={color}
-            className="h-10 w-full flex items-center justify-center border border-gray-500 rounded-2xl cursor-pointer transition-colors overflow-hidden"
+            className="h-10 w-full flex items-center justify-center border border-gray-500 rounded-2xl cursor-pointer transition-colors overflow-hidden hover:bg-[#B2A5FF] hover:text-white"
           >
             <input
               type="radio"
@@ -29,7 +38,7 @@ export default function ColorSection({ product }: { product: Product }) {
               className="hidden peer"
               onChange={() => dispatch(setColorSelected({ color }))}
             />
-            <p className="peer-checked:bg-gray-400 px-3 py-2 rounded-2xl transition-colors min-w-[100px] text-center">
+            <p className="peer-checked:bg-[#B2A5FF] peer-checked:text-white px-3 py-2 rounded-2xl transition-colors min-w-[100px] text-center">
               {color}
             </p>
           </label>

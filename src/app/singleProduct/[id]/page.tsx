@@ -35,7 +35,7 @@ export default async function Page({ params }: { params: { id: string } }) {
               <ColorSection product={product} />
             </div>
               <DitailsSection product={product} />
-            <div className="border border-gray-500 rounded-xl absolute top-5 left-10 w-[250px] h-[300px] p-5">
+            <div className="border border-[#B2A5FF] rounded-xl absolute top-5 left-10 w-[250px] h-[300px] p-5 bg-purple-50">
               <OrderSection product={product} />
             </div>
           </div>
