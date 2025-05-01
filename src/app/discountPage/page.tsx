@@ -68,8 +68,8 @@ export default function Page() {
         {allProducts?.length ? (
           <div className="grid grid-cols-4 gap-4 gap-y-10 w-full bg-white z-10 justify-items-center p-5 shadow-white shadow-2xl rounded-4xl">
             {allProducts.map((product: any) => (
-              <div className="bg-white">
-                <ProductCard product={product} key={product._id} />
+              <div className="bg-white" key={product._id} >
+                <ProductCard product={product} />
               </div>
             ))}
             {products?.total_pages === products?.page && (

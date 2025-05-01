@@ -1,18 +1,23 @@
-export const FooterLocalization = { aboutUs: "درباره ما" ,
-    phone : "تلفن پشتیبانی"
-
+export const FooterLocalization = {
+  orginal: "تضمین اصالت کالا",
+  phone: "تلفن پشتیبانی",
+  clock: "بازگشت کالا تا 72 ساعت",
+  pey: "پرداخت در محل",
+  goldStar: "فروشگاه اینترنتی لوازم آرایشی و بهداشتی گلداستار",
+  about:
+    "در 'گلداستار' خرید فقط یک تجربه نیست؛ یک سفر به دنیای بهترین و متنوع‌ترین محصولات آرایشی، بهداشتی، مراقبتی است. تمام تلاش و هدف ما این است که بتوانیم با ارائه محصولات اصل و باکیفیت به همراه اطلاعات دقیق، به شما کمک کنیم خرید اینترنتی امن و آگاهانه‌ای تجربه کنید. گلداستار از سال 0 نماینده رسمی کلیه برندهای دنیاست و همواره در تلاش است تا خدمات ویژه‌ای به مشتریان خود ارائه کند. از ضمانت و اصالت کالاها گرفته تا راهنمایی و پشتیبانی حرفه‌ای و ارسال سریع و بدون مشکل، کنار شما هستیم.",
 };
 
 export const HeaderLocalization = {
-search : "جستجو",
-login : "ثبت نام | ورود",
-profile : "حساب کاربری",
-noResults : "محصولی یافت نشد"
-}
+  search: "جستجو",
+  login: "ثبت نام | ورود",
+  profile: "حساب کاربری",
+  noResults: "محصولی یافت نشد",
+};
 
 export const DropDownLocalization = {
-    list : "دسته بندی محصولات"
-}
+  list: "دسته بندی محصولات",
+};
 
 export const dropDownLocalization = {
   Sanitary: "بهداشتی",
@@ -38,7 +43,7 @@ export const dropDownLocalization = {
   HairDryer: "سشوار",
   HairStraightener: "اتو مو",
   trimmer: "ماشین مو تراش بدن",
-  Sunscreen:"کرم ضدآفتاب",
+  Sunscreen: "کرم ضدآفتاب",
 };
 
 export const singInLocalization = {
@@ -72,33 +77,34 @@ export const signUpLocalization = {
 
 export const swiperLocalization = {
   slide1: "زیبایی صدات میکنه...",
-  slide2:"درخشش واقعی موهات...",
-  slide3:"جادوی رنگ و هارمونی چشم گیر...",
-  slide4:"هر روز مثل روز آرایشگاه...",
-  slide5:"لمس لطافت روی پوست بدنت...",
-  view:"مشاهده محصولات",
-}
+  slide2: "درخشش واقعی موهات...",
+  slide3: "جادوی رنگ و هارمونی چشم گیر...",
+  slide4: "هر روز مثل روز آرایشگاه...",
+  slide5: "لمس لطافت روی پوست بدنت...",
+  view: "مشاهده محصولات",
+};
 
 export const HomePageLocalization = {
   discount: "تخفیف های ویژه",
-  discountDescription: "با خرید از محصولات موجود در سایت، تخفیف های ویژه ویژه به شما ارائه می شود",
+  discountDescription:
+    "با خرید از محصولات موجود در سایت، تخفیف های ویژه ویژه به شما ارائه می شود",
   discountButton: "مشاهده تخفیف ها",
-}
- export const homePageLocalization = {
-   toman: "تومان",
-   open: "مشاهده محصول",
- };
+};
+export const homePageLocalization = {
+  toman: "تومان",
+  open: "مشاهده محصول",
+};
 
- export const productPageLocalization = {
+export const productPageLocalization = {
   notFound: "محصولی پیدا نشد",
   more: "نمایش بیشتر",
   noMore: "محصولات بیشتری وجود ندارد",
- }
- export const limitedSectionLocalization = {
+};
+export const limitedSectionLocalization = {
   watDoyouWant: "چه محصولی می‌خوای...؟",
   go: "بریم ببینیم",
- }
- export const singleProductLocalization = {
+};
+export const singleProductLocalization = {
   name: "نام محصول :",
   description: "توضیحات محصول",
   price: "قیمت",
@@ -114,13 +120,14 @@ export const HomePageLocalization = {
   successText: "برای مشاهده سبد خرید کلیک کنید",
   successButton: "مشاهده سبد خرید",
   successCancel: "ادامه خرید",
- }
+  dontHave:"محصول موجود نمیباشد"
+};
 
- export const addTocartLocalization = {
+export const addTocartLocalization = {
   success: "محصول در سبد خرید بود و تعداد آن افزایش یافت",
   added: "محصول به سبد خرید اضافه شد",
   colorError: "رنگ محصول را انتخاب کنید",
   colorSuccess: "محول با رنگ جدید به سبد خرید اضافه شد",
   colorNotSelected: "رنگ محصول را انتخاب کنید",
   countNotSelected: "تعداد محصول را وارد کنید",
- }
+};

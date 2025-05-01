@@ -1,9 +1,14 @@
 import discount from "../../../../public/image/off.png";
-import { homePageLocalization, singleProductLocalization } from "@/constants/Localizations/Localization";
+import {
+  homePageLocalization,
+  singleProductLocalization,
+} from "@/constants/Localizations/Localization";
 import { Product } from "../ProductInterFace/ProductInterFace";
 import { BiCaretLeft } from "react-icons/bi";
 
 export default function PriceSection({ product }: { product: Product }) {
+  if (product.quantity < 1) return null;
+
   return (
     <div className="mt-5">
       <div className="flex gap-2 items-center">
