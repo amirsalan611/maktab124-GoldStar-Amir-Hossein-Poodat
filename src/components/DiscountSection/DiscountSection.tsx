@@ -53,11 +53,14 @@ export default function DiscountSection() {
           spaceBetween={300}
           slidesPerView={4}
         >
-          {data?.map((product: any) => (
-            <SwiperSlide key={product._id}>
-              <ProductCard product={product} />
-            </SwiperSlide>
-          ))}
+          {data?.map(
+            (product: any) =>
+              product.quantity > 0 && (
+                <SwiperSlide key={product._id}>
+                  <ProductCard product={product} />
+                </SwiperSlide>
+              )
+          )}
         </Swiper>
       </div>
     </div>
