@@ -99,14 +99,6 @@ export const productPageLocalization = {
   notFound: "محصولی پیدا نشد",
   more: "نمایش بیشتر",
   noMore: "محصولات بیشتری وجود ندارد",
-  filter: "فیلتر ها :",
-  brand: "برند",
-  instock: "فقط موجود",
-  price:"محدوده قیمت",
-  from:"از",
-  to:"تا",
-  apply:"اعمال فیلتر",
-  reset:"حذف فیلتر",
 };
 export const limitedSectionLocalization = {
   watDoyouWant: "چه محصولی می‌خوای...؟",
