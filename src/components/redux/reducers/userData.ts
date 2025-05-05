@@ -22,7 +22,7 @@ const userDataSlice = createSlice({
   initialState,
   reducers: {
     saveUserData: (state, action) => {
-      return { ...state, ...action.payload };
+      return { ...state, userData: action.payload };
     },
     clearUserData: () => initialState,
   },
