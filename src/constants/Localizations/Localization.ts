@@ -107,6 +107,13 @@ export const productPageLocalization = {
   to:"تا",
   apply:"اعمال فیلتر",
   reset:"حذف فیلتر",
+  inStock:"فقط موجود",
+  minPrice:"حداقل قیمت",
+  maxPrice:"حداکثر قیمت",
+  discounts:"فقط تخفیف دار ها",
+  lowest:"کمترین قیمت",
+  highest:"بیشترین قیمت",
+  sort:"مرتب کردن",
 };
 export const limitedSectionLocalization = {
   watDoyouWant: "چه محصولی می‌خوای...؟",

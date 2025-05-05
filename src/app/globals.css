@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-.back {
-  background-color: #dad2ff;
-}
-
 @font-face {
   font-family: "IranSans";
   src: url("/public/fonts/Vazirmatn-UI-FD-Thin.woff2") format("woff2");
@@ -278,4 +274,21 @@ body,html{
 	90% {
 		transform: rotate(8deg);
 	}
+}
+
+.rc-slider-track {
+  background-color: #b2a5ff !important;
+}
+
+.rc-slider-rail {
+  background-color: #3b3b3b !important;
+}
+
+.rc-slider-handle {
+  background-color: #b2a5ff !important;
+  border: 2px solid #b2a5ff !important;
+  box-shadow: 0 0 0 5px rgba(178, 165, 255, 0.5) !important;
+}
+input[type="checkbox"] {
+  accent-color: #b2a5ff;
 }
