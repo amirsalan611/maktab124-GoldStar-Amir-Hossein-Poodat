@@ -34,8 +34,12 @@ const Input = ({
   };
 
   return (
-    <StyledWrapper>
-      <div className={`group bg-white px-5 ${error ? "border-2 border-red-500" : ""}`}>
+    <StyledWrapper className={`${!error ? "border-2 border-[#B2A5FF]" : ""} rounded-xl`}>
+      <div
+        className={`group bg-white px-5 ${
+          error ? "border-2 border-red-500" : ""
+        }`}
+      >
         <input
           className={`${className}input outline-none `}
           type={isPassword ? (showPassword ? "text" : "password") : type}
@@ -63,8 +67,8 @@ const StyledWrapper = styled.div`
     align-items: center;
     position: relative;
     max-width: 500px;
-    // padding: 0 1rem 0 3rem;
-    // border: 2px solid transparent;
+    //  padding: 0 1rem 0 3rem;
+    //  border: 2px solid transparent;
     border-radius: 10px;
     color: #0d0c22;
     transition: 0.5s ease;

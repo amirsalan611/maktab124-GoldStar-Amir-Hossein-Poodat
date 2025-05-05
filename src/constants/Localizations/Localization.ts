@@ -99,6 +99,14 @@ export const productPageLocalization = {
   notFound: "محصولی پیدا نشد",
   more: "نمایش بیشتر",
   noMore: "محصولات بیشتری وجود ندارد",
+  filter: "فیلتر ها :",
+  brand: "برند",
+  instock: "فقط موجود",
+  price:"محدوده قیمت",
+  from:"از",
+  to:"تا",
+  apply:"اعمال فیلتر",
+  reset:"حذف فیلتر",
 };
 export const limitedSectionLocalization = {
   watDoyouWant: "چه محصولی می‌خوای...؟",
@@ -131,3 +139,35 @@ export const addTocartLocalization = {
   colorNotSelected: "رنگ محصول را انتخاب کنید",
   countNotSelected: "تعداد محصول را وارد کنید",
 };
+
+export const cartPageLocalization = {
+  price: "قیمت محصول",
+  discount: "تخفیف محصول",
+  totalPrice: "قیمت کل",
+  brand: "برند :",
+  color: "رنگ :",
+  toman: "تومان",
+  totalDiscount: "تخفیف کل",
+  pey: "پرداخت",
+  checkout:"نهایی کردن خرید",
+  noItems:"هیچ محصولی در سبد خرید ندارید"
+};
+
+export const checkoutPageLocalization = {
+  title:"اطلاعات تحویل گیرنده",
+  recipientName: "نام و نام خانوادگی تحویل گیرنده",
+  recipientNationalId: "کد ملی تحویل گیرنده",
+  recipientPhone: "شماره تلفن تحویل گیرنده",
+  deliveryAddress: "آدرس تحویل",
+  deliveryDate: "تاریخ تحویل",
+  submit:"پرداخت و ثبت سفارش"
+}
+
+export const paymentPageLocalization = {
+  cardNumber: "شماره کارت",
+  expiryDate: "تاریخ انقضا",
+  cvv: "CVV2",
+  password: "رمز دوم",
+  pey: "پرداخت",
+  success: "سفارش با موفقیت ثبت شد",
+}

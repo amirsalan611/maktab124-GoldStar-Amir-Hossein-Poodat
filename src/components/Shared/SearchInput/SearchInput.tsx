@@ -58,7 +58,7 @@ const SearchInput = () => {
       </div>
 
       {searchTerm.trim() && (
-        <div className="flex flex-col items-center gap-2 absolute bg-purple-50 w-1/3 border border-[#94a3b8] rounded-lg top-22 left-1/2 -translate-x-1/2 py-5 max-h-[300px] overflow-y-auto hide-scrollbar">
+        <div className="flex flex-col items-center gap-2 absolute bg-purple-50 w-1/3 border border-[#94a3b8] rounded-lg top-22 left-1/2 -translate-x-1/2 py-5 max-h-[300px] overflow-y-auto hide-scrollbar z-50">
           {isLoading || !showResults ? (
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-500"></div>
           ) : searchResults?.length > 0 ? (

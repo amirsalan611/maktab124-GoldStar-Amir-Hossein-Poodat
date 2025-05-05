@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isSignInPage = pathname === "/signIn";
+  const isSignInPage = pathname === "/signIn" || pathname === "/payment";
 
   if (isSignInPage) {
     return <>{children}</>;

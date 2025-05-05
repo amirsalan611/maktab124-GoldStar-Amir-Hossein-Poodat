@@ -43,7 +43,7 @@ const handleLogOut = async () => {
       <div className="flex flex-col gap-5 justify-center items-center">
         <SearchInput />
       </div>
-      <div className="flex gap-2 items-center">
+      <div className="flex gap-2 items-center w-[223px]">
         <div>
           {loggedIn === false ? (
             <Link href="/signIn">
@@ -61,7 +61,11 @@ const handleLogOut = async () => {
           )}
         </div>
 
-        <div className="p-3 border-1 border-[#B2A5FF] rounded-2xl text-gray-500 hover:bg-[#B2A5FF] hover:text-white hover:border-indigo-400 transition-all duration-500 ease-in-out hover:shadow-[0_0_0_5px_rgba(129,140,248,0.3)] bg-white cursor-pointer">
+        <div 
+        onClick={() => {
+          window.location.href = "/carts";
+        }}
+        className="p-3 border-1 border-[#B2A5FF] rounded-2xl text-gray-500 hover:bg-[#B2A5FF] hover:text-white hover:border-indigo-400 transition-all duration-500 ease-in-out hover:shadow-[0_0_0_5px_rgba(129,140,248,0.3)] bg-white cursor-pointer">
           <RiShoppingCartLine className="text-2xl" />
         </div>
 
