@@ -20,7 +20,7 @@ export default function OrderSection({ product }: { product: Product }) {
 
   const handleAddToCart = () => {
     const cart = JSON.parse(localStorage.getItem("carts") || "[]");
-    const newProduct = { _id: ProductId, count, color: colorSelected };
+    const newProduct = { product: ProductId, count, color: colorSelected };
 
     const index = cart.findIndex((item: any) => item._id === product._id);
 
