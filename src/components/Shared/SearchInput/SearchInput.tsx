@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { StyledWrapper } from "./SearchInput.styles";
 import { useRouter } from "next/navigation";
+import { Product } from "@/types/product";
 
 const SearchInput = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -62,7 +63,7 @@ const SearchInput = () => {
           {isLoading || !showResults ? (
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-500"></div>
           ) : searchResults?.length > 0 ? (
-            searchResults.map((item: any) => (
+            searchResults.map((item: Product) => (
               <div
                 key={item._id}
                 className="border-b border-[#94a3b8] w-2/3 text-center py-3 hover:bg-purple-100 cursor-pointer rounded-2xl shadow-2xl"

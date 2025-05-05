@@ -30,10 +30,11 @@ export const SignUP = async ({
     headers: {
       "Content-Type": "application/json",
     },});
-    console.log(response)
     return response;
-  } catch (error: any) {
-    console.log(error)
-    throw error.response;
+  } catch (error: unknown) {
+    if (typeof error === "object" && error !== null && "response" in error && typeof error.response === "object" && error.response !== null && "status" in error.response) {
+      throw error.response;
+    }
+    throw error;
   }
 };

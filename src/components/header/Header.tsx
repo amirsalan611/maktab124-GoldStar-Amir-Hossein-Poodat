@@ -4,7 +4,6 @@ import DropDown from "../dropDown/DropDown";
 import Logo from "../logo/Logo";
 import SearchInput from "../Shared/SearchInput/SearchInput";
 import { HeaderLocalization } from "@/constants/Localizations/Localization";
-import DarkModeButton from "../DarkModeButton/DarkModeButton";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
@@ -68,8 +67,6 @@ const handleLogOut = async () => {
         className="p-3 border-1 border-[#B2A5FF] rounded-2xl text-gray-500 hover:bg-[#B2A5FF] hover:text-white hover:border-indigo-400 transition-all duration-500 ease-in-out hover:shadow-[0_0_0_5px_rgba(129,140,248,0.3)] bg-white cursor-pointer">
           <RiShoppingCartLine className="text-2xl" />
         </div>
-
-        {/* <DarkModeButton /> */}
       </div>
     </div>
   );

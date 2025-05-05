@@ -6,9 +6,10 @@ import { getProducts } from "@/services/auth/getProducts/GetProducts";
 import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import discount from "../../../public/image/Pink Brown Cosmetic Sales Promotion Banner.jpg";
+import { Product } from "@/types/product";
 
 export default function Page() {
-  const [allProducts, setAllProducts] = useState<any[]>([]);
+  const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [page, setPage] = useState(1);
 
   const { data: products, isLoading } = useQuery({
@@ -67,7 +68,7 @@ export default function Page() {
         </div>
         {allProducts?.length ? (
           <div className="grid grid-cols-4 gap-4 gap-y-10 w-full bg-white z-10 justify-items-center p-5 shadow-white shadow-2xl rounded-4xl">
-            {allProducts.map((product: any) => (
+            {allProducts.map((product: Product) => (
               <div className="bg-white" key={product._id} >
                 <ProductCard product={product} />
               </div>

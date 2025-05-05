@@ -4,7 +4,6 @@ import { useState } from "react";
 import styled from "styled-components";
 import { FiEyeOff } from "react-icons/fi";
 import { IoEyeOutline } from "react-icons/io5";
-import { inputLocalization } from "@/constants/Localizations/Localization";
 
 
 interface Iprops {

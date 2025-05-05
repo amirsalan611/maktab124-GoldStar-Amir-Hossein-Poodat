@@ -10,11 +10,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { setColorSelected } from "@/components/redux/reducers/colorSelected";
 import Swal from "sweetalert2";
+import { CartItem, RootState } from "@/types/redux";
 export default function OrderSection({ product }: { product: Product }) {
   const [count, setCount] = React.useState(0);
   const ProductId = product._id;
   const colorSelected = useSelector(
-    (state: any) => state.colorSelected.colorSelected.color
+    (state: RootState) => state.colorSelected.colorSelected.color
   );
   const dispatch = useDispatch();
 
@@ -22,8 +23,7 @@ export default function OrderSection({ product }: { product: Product }) {
     const cart = JSON.parse(localStorage.getItem("carts") || "[]");
     const newProduct = { product: ProductId, count, color: colorSelected };
 
-    const index = cart.findIndex((item: any) => item._id === product._id);
-
+    const index = cart.findIndex((item: CartItem) => item.product === product._id);
     if (count > 0) {
       if (colorSelected) {
         if (index !== -1) {
@@ -79,7 +79,9 @@ export default function OrderSection({ product }: { product: Product }) {
   return (
     <div className="flex flex-col justify-between gap-3 h-full ">
       {product.quantity < 1 ? (
-        <div className="flex justify-center items-center h-full">{singleProductLocalization.dontHave}</div>
+        <div className="flex justify-center items-center h-full">
+          {singleProductLocalization.dontHave}
+        </div>
       ) : (
         <>
           <div className="border-b pb-5 border-gray-300 flex flex-col gap-3">

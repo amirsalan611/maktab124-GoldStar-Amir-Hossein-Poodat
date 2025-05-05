@@ -3,10 +3,11 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { toggleDarkMode } from "../redux/reducers/darkMode";
+import { RootState } from "@/types/redux";
 
 const DarkModeButton = () => {
   const dispatch = useDispatch();
-  const isDark = useSelector((state: any) => state.darkMode.isDarkMode);
+  const isDark = useSelector((state: RootState) => state.darkMode.isDarkMode);
 
   return (
     <StyledWrapper>

@@ -65,21 +65,29 @@ export default function SignUpForm() {
     setLoading(true);
 
     try {
-        console.log(formData)
       const result = await SignUP(formData);
       console.log(result.data);
       if (result.status === 201) {
         window.location.href = "/signIn";
       }
-    } catch (error: any) {
-      if (error?.response?.status === 401) {
-        toast.error(signUpLocalization.error);
-      } else {
-        toast.error(singInLocalization.error);
+    } catch (error: unknown) {
+      if (
+        typeof error === "object" &&
+        error !== null &&
+        "response" in error &&
+        typeof error.response === "object" &&
+        error.response !== null &&
+        "status" in error.response
+      ) {
+        if (error.response.status === 401) {
+          toast.error(signUpLocalization.error);
+        } else {
+          toast.error(singInLocalization.error);
+        }
       }
     } finally {
       setLoading(false);
-      setErrors({...errors,error:false});
+      setErrors({ ...errors, error: false });
       toast.success(signUpLocalization.success);
     }
   };
@@ -143,7 +151,9 @@ export default function SignUpForm() {
         value={formData.password}
         onChange={handleChange}
       />
-      {errors.error && <p className="text-center text-red-500">{signUpLocalization.error}</p>}
+      {errors.error && (
+        <p className="text-center text-red-500">{signUpLocalization.error}</p>
+      )}
       <Button
         content={singInLocalization.signUp}
         type="submit"

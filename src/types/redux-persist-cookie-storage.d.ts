@@ -1,7 +1,7 @@
 declare module "redux-persist-cookie-storage" {
   export class CookieStorage {
     constructor(
-      cookies: any,
+      cookies: unknown,
       options?: { expiration?: { default?: number }; secure?: boolean }
     );
     getItem(key: string): Promise<string | null>;

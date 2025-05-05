@@ -8,11 +8,12 @@ import { getCategoreis } from "@/services/auth/GetCategories/GetCategoreis";
 import { getSubCategories } from "@/services/auth/GetSubCategories/GetsbCategories";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Category, SubCategory } from "@/types/product";
 
 export default function DropDown() {
   const [isOpen, setIsOpen] = useState(false);
-  const [categories, setCategories] = useState<any[]>([]);
-  const [subcategories, setSubcategories] = useState<any[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [subcategories, setSubcategories] = useState<SubCategory[]>([]);
   const [openSubIndex, setOpenSubIndex] = useState<number | null>(null);
 
   useEffect(() => {
@@ -100,20 +101,18 @@ export default function DropDown() {
                   {category.subcategories && openSubIndex === index && (
                     <div className="mt-2 space-y-1 rounded-xl p-2">
                       {category.subcategories.map(
-                        (
-                          sub: {
-                            name: keyof typeof dropDownLocalization;
-                            _id: string;
-                          },
-                          subIndex: number
-                        ) => (
+                        (sub: SubCategory, subIndex: number) => (
                           <Link
                             key={subIndex}
                             href={`/products/${sub._id}`}
                             className="block px-4 py-2 text-sm text-gray-600 hover:bg-[#B2A5FF] hover:text-white rounded-lg transition-all duration-300"
                             onClick={closeDropdown}
                           >
-                            {dropDownLocalization[sub.name]}
+                            {
+                              dropDownLocalization[
+                                sub.name as keyof typeof dropDownLocalization
+                              ]
+                            }
                           </Link>
                         )
                       )}
