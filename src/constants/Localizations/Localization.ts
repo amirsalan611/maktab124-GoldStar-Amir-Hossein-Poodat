@@ -99,6 +99,21 @@ export const productPageLocalization = {
   notFound: "محصولی پیدا نشد",
   more: "نمایش بیشتر",
   noMore: "محصولات بیشتری وجود ندارد",
+  filter: "فیلتر ها :",
+  brand: "برند",
+  instock: "فقط موجود",
+  price: "محدوده قیمت",
+  from: "از",
+  to: "تا",
+  apply: "اعمال فیلتر",
+  reset: "حذف فیلتر",
+  inStock: "فقط موجود",
+  minPrice: "حداقل قیمت",
+  maxPrice: "حداکثر قیمت",
+  discounts: "فقط تخفیف دار ها",
+  lowest: "کمترین قیمت",
+  highest: "بیشترین قیمت",
+  sort: "مرتب کردن",
 };
 export const limitedSectionLocalization = {
   watDoyouWant: "چه محصولی می‌خوای...؟",
@@ -120,7 +135,7 @@ export const singleProductLocalization = {
   successText: "برای مشاهده سبد خرید کلیک کنید",
   successButton: "مشاهده سبد خرید",
   successCancel: "ادامه خرید",
-  dontHave:"محصول موجود نمیباشد"
+  dontHave: "محصول موجود نمیباشد",
 };
 
 export const addTocartLocalization = {
@@ -141,19 +156,19 @@ export const cartPageLocalization = {
   toman: "تومان",
   totalDiscount: "تخفیف کل",
   pey: "پرداخت",
-  checkout:"نهایی کردن خرید",
-  noItems:"هیچ محصولی در سبد خرید ندارید"
+  checkout: "نهایی کردن خرید",
+  noItems: "هیچ محصولی در سبد خرید ندارید",
 };
 
 export const checkoutPageLocalization = {
-  title:"اطلاعات تحویل گیرنده",
+  title: "اطلاعات تحویل گیرنده",
   recipientName: "نام و نام خانوادگی تحویل گیرنده",
   recipientNationalId: "کد ملی تحویل گیرنده",
   recipientPhone: "شماره تلفن تحویل گیرنده",
   deliveryAddress: "آدرس تحویل",
   deliveryDate: "تاریخ تحویل",
-  submit:"پرداخت و ثبت سفارش"
-}
+  submit: "پرداخت و ثبت سفارش",
+};
 
 export const paymentPageLocalization = {
   cardNumber: "شماره کارت",
@@ -162,4 +177,4 @@ export const paymentPageLocalization = {
   password: "رمز دوم",
   pey: "پرداخت",
   success: "سفارش با موفقیت ثبت شد",
-}
+};

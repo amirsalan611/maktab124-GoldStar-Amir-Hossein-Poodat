@@ -8,12 +8,13 @@ import { getCategoreis } from "@/services/auth/GetCategories/GetCategoreis";
 import { getSubCategories } from "@/services/auth/GetSubCategories/GetsbCategories";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Category, SubCategory } from "@/types/product";
+import { Category, Subcategory } from "@/types/product";
+
 
 export default function DropDown() {
   const [isOpen, setIsOpen] = useState(false);
   const [categories, setCategories] = useState<Category[]>([]);
-  const [subcategories, setSubcategories] = useState<SubCategory[]>([]);
+  const [subcategories, setSubcategories] = useState<Subcategory[]>([]);
   const [openSubIndex, setOpenSubIndex] = useState<number | null>(null);
 
   useEffect(() => {
@@ -101,7 +102,7 @@ export default function DropDown() {
                   {category.subcategories && openSubIndex === index && (
                     <div className="mt-2 space-y-1 rounded-xl p-2">
                       {category.subcategories.map(
-                        (sub: SubCategory, subIndex: number) => (
+                        (sub: Subcategory, subIndex: number) => (
                           <Link
                             key={subIndex}
                             href={`/products/${sub._id}`}

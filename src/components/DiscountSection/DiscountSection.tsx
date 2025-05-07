@@ -12,6 +12,7 @@ import Button from "../Shared/button/Button";
 import { useRouter } from "next/navigation";
 import { Product } from "@/types/product";
 
+
 export default function DiscountSection() {
   const router = useRouter();
   const { data, isLoading, error } = useQuery({

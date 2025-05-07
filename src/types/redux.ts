@@ -1,4 +1,4 @@
-import { Product } from "./product";
+
 
 export interface UserData {
   _id: string;

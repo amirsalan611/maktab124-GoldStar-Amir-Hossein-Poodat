@@ -9,12 +9,13 @@ import { useRouter } from "next/navigation";
 import discount from "../../../../public/image/off.png";
 import { Product } from "@/types/product";
 
+
 export default function ProductCard({ product }: { product: Product }) {
   const router = useRouter();
   return (
     <div className="flex flex-col items-center justify-center bg-purple-50 border border-[#B2A5FF] gap-2 rounded-3xl p-4 relative w-[400px] h-[480px] hover:scale-105 transition-all duration-300">
       <img
-        src={`http://${product.images[0]}`}
+        src={`http://${product.images?.[0]}`}
         alt={product.name}
         width={200}
         className="object-cover rounded-4xl"

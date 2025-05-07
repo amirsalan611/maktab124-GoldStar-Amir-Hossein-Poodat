@@ -8,6 +8,7 @@ import React, { useEffect, useState } from "react";
 import discount from "../../../public/image/Pink Brown Cosmetic Sales Promotion Banner.jpg";
 import { Product } from "@/types/product";
 
+
 export default function Page() {
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [page, setPage] = useState(1);

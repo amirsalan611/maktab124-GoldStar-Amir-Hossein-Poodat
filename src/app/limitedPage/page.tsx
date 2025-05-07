@@ -9,6 +9,7 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Product } from "@/types/product";
 
+
 export default function Page() {
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [page, setPage] = useState(1);

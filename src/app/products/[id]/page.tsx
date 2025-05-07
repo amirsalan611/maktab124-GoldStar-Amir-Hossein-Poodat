@@ -7,14 +7,22 @@ import { getSubCategories } from "@/services/auth/GetSubCategories/GetsbCategori
 import ProductCard from "@/components/Shared/ProductCard/ProductCard";
 import Button from "@/components/Shared/button/Button";
 import { productPageLocalization } from "@/constants/Localizations/Localization";
+import FilterSection from "@/components/filterSectionOfProductPage/filterSection";
+import { Category, Product, Subcategory } from "@/types/product";
 
-export default function Page(props: {
-  params: Promise<{ id: string}>;
-}) {
+export default function Page(props: { params: Promise<{ id: string }> }) {
   const { id } = use(props.params);
   const [page, setPage] = useState(1);
   const [type, setType] = useState<"category" | "subcategory" | null>(null);
-  const [allProducts, setAllProducts] = useState<any[]>([]);
+  const [allProducts, setAllProducts] = useState<Product[]>([]);
+  const [refetch, setRefetch] = useState(false);
+  const [filters, setFilters] = useState({
+    sort: "",
+    inStock: false,
+    minPrice: "",
+    maxPrice: "",
+    discounts: false,
+  });
 
   useEffect(() => {
     const checkProductType = async () => {
@@ -24,9 +32,9 @@ export default function Page(props: {
           getSubCategories(),
         ]);
 
-        if (categories.some((cat: any) => cat._id === id)) {
+        if (categories.some((cat: Category) => cat._id === id)) {
           setType("category");
-        } else if (subCategories.some((sub: any) => sub._id === id)) {
+        } else if (subCategories.some((sub: Subcategory) => sub._id === id)) {
           setType("subcategory");
         }
       } catch (err) {
@@ -35,24 +43,46 @@ export default function Page(props: {
     };
 
     checkProductType();
-  }, [id]);
+  }, [id, refetch]);
 
   const { data: products, isLoading } = useQuery({
-    queryKey: ["products", id, type, page],
+    queryKey: ["products", id, type, page, filters],
     queryFn: () =>
-      getProducts({ id, type: type!, page: page}),
+      getProducts({
+        id,
+        type: type!,
+        page: page,
+        minPrice: filters.minPrice,
+        maxPrice: filters.maxPrice,
+        discounts: filters.discounts,
+        inStock: filters.inStock,
+      }),
     enabled: !!type,
   });
 
   useEffect(() => {
     if (products?.data?.products) {
+      let filteredProducts = products.data.products;
+
+      if (filters.sort === "1") {
+        filteredProducts = [...filteredProducts].sort((a, b) => {
+          const priceA = a.price - (a.price / 100) * a.discount;
+          const priceB = b.price - (b.price / 100) * b.discount;
+          return priceA - priceB;
+        });
+      } else if (filters.sort === "2") {
+        filteredProducts = [...filteredProducts].sort((a, b) => {
+          const priceA = a.price - (a.price / 100) * a.discount;
+          const priceB = b.price - (b.price / 100) * b.discount;
+          return priceB - priceA;
+        });
+      }
+
       setAllProducts((prev) =>
-        page === 1
-          ? products.data.products
-          : [...prev, ...products.data.products]
+        page === 1 ? filteredProducts : [...prev, ...filteredProducts]
       );
     }
-  }, [products, page]);
+  }, [products, page, filters.sort]);
 
   if (isLoading || !type) {
     return (
@@ -84,9 +114,22 @@ export default function Page(props: {
 
   return (
     <div className="p-10 flex flex-col gap-10 items-center">
+      <div className="w-2/3 flex justify-between items-center bg-gray-50 py-2 px-5 rounded-2xl">
+        <h1 className="text-2xl font-bold flex items-center gap-2 w-[10%]">
+          {productPageLocalization.filter}
+        </h1>
+        <FilterSection
+          filters={filters}
+          setFilters={setFilters}
+          setPage={setPage}
+          setAllProducts={setAllProducts}
+          refetch={refetch}
+          setRefetch={setRefetch}
+        />
+      </div>
       {allProducts?.length ? (
         <div className="grid grid-cols-4 gap-4 gap-y-10 w-full">
-          {allProducts.map((product: any) => (
+          {allProducts.map((product: Product) => (
             <div key={product._id}>
               <ProductCard product={product} />
             </div>

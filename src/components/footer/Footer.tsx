@@ -6,7 +6,7 @@ import { MdPayment } from "react-icons/md";
 
 export default function Footer() {
   return (
-    <div className="p-5 back flex flex-col gap-5 z-40">
+    <div className="p-5 back flex flex-col gap-5 z-40 bg-purple-50">
       <section>
         <div className="flex gap-24">
           <Logo />

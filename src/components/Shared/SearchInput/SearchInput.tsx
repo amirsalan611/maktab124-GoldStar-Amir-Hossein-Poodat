@@ -9,6 +9,7 @@ import { StyledWrapper } from "./SearchInput.styles";
 import { useRouter } from "next/navigation";
 import { Product } from "@/types/product";
 
+
 const SearchInput = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [showResults, setShowResults] = useState<boolean>(false);
