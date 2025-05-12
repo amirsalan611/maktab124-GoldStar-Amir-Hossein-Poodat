@@ -94,6 +94,7 @@ export default function DropDown() {
                   <Link
                     href={`/products/${category._id}`}
                     className="block p-4 text-lg font-medium text-gray-800 hover:bg-[#B2A5FF] hover:text-white transition-all duration-300 rounded-xl"
+                    onClick={closeDropdown}
                   >
                     {dropDownLocalization[
                       category.name as keyof typeof dropDownLocalization
