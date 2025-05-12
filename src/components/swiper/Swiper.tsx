@@ -12,6 +12,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { swiperLocalization } from "@/constants/Localizations/Localization";
 import Button from "../Shared/button/Button";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function HomeSwiper() {
   const router = useRouter();
@@ -27,10 +28,12 @@ export default function HomeSwiper() {
       slidesPerView={1}
     >
       <SwiperSlide className="w-1/3 h-full grad1 pt-5 text-black">
-        <img
+        <Image
           src={slide1.src}
           alt="Slide 1"
           className="w-1/3 h-full rounded-3xl m-auto"
+          width={1000}
+          height={1000}
         />
         <div className="w-1/3 m-auto p-5 text-2xl h-full flex justify-between items-center gap-5 z-50">
           <p className="text-black bg-gradient-to-l from-white py-3 px-5 rounded-3xl">
@@ -45,10 +48,12 @@ export default function HomeSwiper() {
         </div>
       </SwiperSlide>
       <SwiperSlide className="w-1/3 h-full grad2 pt-5">
-        <img
+        <Image
           src={slide2.src}
           alt="Slide 2"
           className="w-1/3 h-full rounded-xl m-auto"
+          width={1000}
+          height={1000}
         />
         <div className="w-1/3 m-auto p-5 text-2xl h-full flex justify-between items-center gap-5 z-50">
           <p className="text-black bg-gradient-to-l from-white py-3 px-5 rounded-3xl">
@@ -63,10 +68,12 @@ export default function HomeSwiper() {
         </div>
       </SwiperSlide>
       <SwiperSlide className="w-1/3 h-full grad4 pt-5 ">
-        <img
+        <Image
           src={slide4.src}
           alt="Slide 4"
           className="w-1/3 h-full rounded-3xl m-auto"
+          width={1000}
+          height={1000}
         />
         <div className="w-1/3 m-auto p-5 text-2xl h-full flex justify-between items-center gap-5 z-50">
           <p className="text-black bg-gradient-to-l from-white py-3 px-5 rounded-3xl">
@@ -81,10 +88,12 @@ export default function HomeSwiper() {
         </div>
       </SwiperSlide>
       <SwiperSlide className="w-1/3 h-full grad5 pt-5 ">
-        <img
+        <Image
           src={slide5.src}
           alt="Slide 5"
           className="w-1/3 h-full rounded-3xl m-auto"
+          width={1000}
+          height={1000}
         />
         <div className="w-1/3 m-auto p-5 text-2xl h-full flex justify-between items-center gap-5 z-50">
           <p className="text-black bg-gradient-to-l from-white py-3 px-5 rounded-3xl">

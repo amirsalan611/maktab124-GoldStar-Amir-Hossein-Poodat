@@ -6,6 +6,7 @@ import React from "react";
 import { TbTrashFilled } from "react-icons/tb";
 import { product } from "@/types/product";
 import { Cart } from "@/types/Cart";
+import Image from "next/image";
 
 
 export default function ProductCart({
@@ -54,9 +55,11 @@ export default function ProductCart({
           className="border border-gray-600 rounded-3xl overflow-hidden cursor-pointer"
           onClick={() => router.push(`/singleProduct/${product._id}`)}
         >
-          <img
+          <Image
             src={`http://${product.images?.[0]}`}
             alt="Product"
+            width={1000}
+            height={1000}
             className="w-32 h-32 object-cover"
           />
         </div>

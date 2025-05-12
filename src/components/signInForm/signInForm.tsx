@@ -7,6 +7,7 @@ import { SignIn } from "@/services/auth/SignInHandler/SignInHandler";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { saveUserData } from "../redux/reducers/userData";
+import { AxiosError } from "axios";
 
 interface FormData {
   userName: string;
@@ -72,8 +73,8 @@ export default function SignInForm() {
 
         window.location.href = "/";
       }
-    } catch (error: any) {
-      if (error?.response?.status === 401) {
+    } catch (error) {
+      if (error instanceof AxiosError && error.response?.status === 401) {
         setErrors({ ...errors, incorrect: true });
         toast.error(singInLocalization.error);
       } else {

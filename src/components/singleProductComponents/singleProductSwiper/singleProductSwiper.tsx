@@ -6,6 +6,7 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
 import { EffectCoverflow, Pagination } from "swiper/modules";
+import Image from "next/image";
 
 export default function SingleProductSwiper({ images }: { images: string[] }) {
   return (
@@ -30,10 +31,12 @@ export default function SingleProductSwiper({ images }: { images: string[] }) {
         {images?.map((image, index) => {
           return (
             <SwiperSlide key={index} className="!w-2/3 !h-full">
-              <img
+              <Image
                 src={`http://${image}`}
                 alt={`image-[${index}]`}
                 className="w-full h-full object-cover !rounded-2xl"
+                width={1000}
+                height={1000}
               />
             </SwiperSlide>
           );

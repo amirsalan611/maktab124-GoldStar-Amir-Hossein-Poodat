@@ -5,6 +5,7 @@ import to1m from "../../../public/image/to1m.png";
 import { limitedSectionLocalization } from "@/constants/Localizations/Localization";
 import Button from "../Shared/button/Button";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function LimitedSection() {
   const router = useRouter();
@@ -16,7 +17,7 @@ export default function LimitedSection() {
       </h2>
       <div className="flex items-center justify-center gap-10 my-10">
         <div className="relative w-1/3">
-          <img src={to500.src} alt="to500" className="rounded-3xl " />
+          <Image src={to500.src} alt="to500" className="rounded-3xl " width={1000} height={1000}/>
           <Button
             content={limitedSectionLocalization.go}
             type="button"
@@ -25,7 +26,7 @@ export default function LimitedSection() {
           />
         </div>
         <div className="relative w-1/3">
-          <img src={to1m.src} alt="to1m" className="rounded-3xl" />
+          <Image src={to1m.src} alt="to1m" className="rounded-3xl" width={1000} height={1000}/>
           <Button
             content={limitedSectionLocalization.go}
             type="button"

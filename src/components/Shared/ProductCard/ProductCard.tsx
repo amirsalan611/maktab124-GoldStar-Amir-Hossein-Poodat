@@ -8,16 +8,17 @@ import Button from "../button/Button";
 import { useRouter } from "next/navigation";
 import discount from "../../../../public/image/off.png";
 import { product } from "@/types/product";
-
+import Image from "next/image";
 
 export default function ProductCard({ product }: { product: product }) {
   const router = useRouter();
   return (
     <div className="flex flex-col items-center justify-center bg-purple-50 border border-[#B2A5FF] gap-2 rounded-3xl p-4 relative w-[400px] h-[480px] hover:scale-105 transition-all duration-300">
-      <img
+      <Image
         src={`http://${product.images?.[0]}`}
         alt={product.name}
         width={200}
+        height={200}
         className="object-cover rounded-4xl"
       />
       <h1 className="text-gray-500 text-sm">{product.brand}</h1>
@@ -37,8 +38,8 @@ export default function ProductCard({ product }: { product: product }) {
             </div>
           )}
           {product.discount > 0 && (
-            <div className="absolute top-[-10px] right-[-15px] animation">
-              <img src={discount.src} alt="discount" className="w-20" />
+            <div className="absolute top-[-10px] right-[-15px] animate-pulse">
+              <Image src={discount.src} alt="discount" className="w-20" width={1000} height={1000}/>
               <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-white z-10">
                 {product.discount}%
               </p>

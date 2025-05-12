@@ -3,10 +3,11 @@ import {
   homePageLocalization,
   singleProductLocalization,
 } from "@/constants/Localizations/Localization";
-import { Product } from "../ProductInterFace/ProductInterFace";
+import { product } from "@/types/product";
 import { BiCaretLeft } from "react-icons/bi";
+import Image from "next/image";
 
-export default function PriceSection({ product }: { product: Product }) {
+export default function PriceSection({ product }: { product: product }) {
   if (product.quantity < 1) return null;
 
   return (
@@ -29,7 +30,7 @@ export default function PriceSection({ product }: { product: Product }) {
               </p>
             </div>
             <div className="animation">
-              <img src={discount.src} alt="discount" className="w-20" />
+              <Image src={discount.src} alt="discount" className="w-20" width={1000} height={1000}/>
               <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-white z-10">
                 {product.discount}%
               </p>
