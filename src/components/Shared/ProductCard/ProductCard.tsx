@@ -38,8 +38,14 @@ export default function ProductCard({ product }: { product: product }) {
             </div>
           )}
           {product.discount > 0 && (
-            <div className="absolute top-[-10px] right-[-15px] animate-pulse">
-              <Image src={discount.src} alt="discount" className="w-20" width={1000} height={1000}/>
+            <div className="absolute top-[-10px] right-[-15px] animation">
+              <Image
+                src={discount.src}
+                alt="discount"
+                className="w-20"
+                width={1000}
+                height={1000}
+              />
               <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-white z-10">
                 {product.discount}%
               </p>
