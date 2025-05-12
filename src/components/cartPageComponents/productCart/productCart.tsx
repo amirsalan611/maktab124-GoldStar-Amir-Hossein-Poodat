@@ -2,8 +2,11 @@
 import Button from "@/components/Shared/button/Button";
 import { cartPageLocalization } from "@/constants/Localizations/Localization";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { TbTrashFilled } from "react-icons/tb";
+import { product } from "@/types/product";
+import { Cart } from "@/types/Cart";
+
 
 export default function ProductCart({
   product,
@@ -12,17 +15,17 @@ export default function ProductCart({
   setAllCart,
   handleDelete,
 }: {
-  product: any;
-  cart: any;
-  allCart: any[];
-  setAllCart: (cart: any[]) => void;
+  product: product;
+  cart: Cart;
+  allCart: Cart[];
+  setAllCart: (cart: Cart[]) => void;
   handleDelete: (id: string, color: string) => void;
 }) {
   const router = useRouter();
 
   const handleIncrement = () => {
     const updatedCart = allCart.map((item) => {
-      if (item._id === cart._id && item.color === cart.color) {
+      if (item.product === cart.product && item.color === cart.color) {
         return { ...item, count: item.count + 1 };
       }
       return item;
@@ -33,7 +36,7 @@ export default function ProductCart({
 
   const handleDecrement = () => {
     const updatedCart = allCart.map((item) => {
-      if (item._id === cart._id && item.color === cart.color) {
+      if (item.product === cart.product && item.color === cart.color) {
         return { ...item, count: Math.max(item.count - 1, 1) };
       }
       return item;
@@ -52,7 +55,7 @@ export default function ProductCart({
           onClick={() => router.push(`/singleProduct/${product._id}`)}
         >
           <img
-            src={`http://${product.images[0]}`}
+            src={`http://${product.images?.[0]}`}
             alt="Product"
             className="w-32 h-32 object-cover"
           />
@@ -101,7 +104,7 @@ export default function ProductCart({
       </div>
       <div
         className="absolute top-[-15px] left-[-15px] cursor-pointer"
-        onClick={() => handleDelete(cart._id, cart.color)}
+        onClick={() => handleDelete(cart.product, cart.color)}
       >
         <TbTrashFilled className="text-red-500 text-4xl" />
       </div>

@@ -5,12 +5,7 @@ import { cartPageLocalization } from "@/constants/Localizations/Localization";
 import { getProductById } from "@/services/auth/getProductById/getProductById";
 import { product } from "@/types/product";
 import React, { useEffect, useState } from "react";
-
-interface Cart {
-  product: string;
-  count: number;
-  color: string;
-}
+import { Cart } from "@/types/Cart";
 
 export default function page() {
   const [carts, setCarts] = useState<Cart[]>([]);
@@ -59,7 +54,7 @@ export default function page() {
                   product={product}
                   cart={carts.find((cart) => {
                     return cart.product === product._id;
-                  })}
+                  }) as Cart}
                   allCart={carts}
                   setAllCart={setCarts}
                   handleDelete={handleDelete}

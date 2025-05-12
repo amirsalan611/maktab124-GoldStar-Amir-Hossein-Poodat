@@ -3,7 +3,7 @@ import Button from "../Shared/button/Button";
 import { productPageLocalization } from "@/constants/Localizations/Localization";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
-import { Product } from "@/types/product";
+import { product } from "@/types/product";
 
 interface Filter {
   sort: string;
@@ -17,7 +17,7 @@ interface FilterSectionProps {
   filters: Filter;
   setFilters: (filters: Filter) => void;
   setPage: (page: number) => void;
-  setAllProducts: (products: Product[]) => void;
+  setAllProducts: (products: product[]) => void;
   refetch: boolean;
   setRefetch: (refetch: boolean) => void;
 }
