@@ -4,16 +4,17 @@ import { paymentPageLocalization } from "@/constants/Localizations/Localization"
 import Input from "@/components/Shared/input/input";
 import Button from "@/components/Shared/button/Button";
 import { useRouter } from "next/navigation";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { BASE_URL } from "@/services/api/api";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { RootState } from "@/types/redux";
 
 export default function Page() {
   const router = useRouter();
   const cartData = JSON.parse(localStorage.getItem("carts") || "{}");
   console.log("cartData", cartData);
-  const userData = useSelector((state: any) => state.userData.userData);
+  const userData = useSelector((state: RootState) => state.userData.userData);
   const [formData, setFormData] = useState({
     cardNumber: "",
     expiryDate: "",
@@ -36,7 +37,7 @@ export default function Page() {
     console.log("userData", userData);
     try {
       const response = await axios.post(`${BASE_URL}/api/orders/`, {
-        user: userData._id,
+        user: userData?._id,
         products: cartData,
         adress: recipientData.deliveryAddress,
         recipientName: recipientData.recipientName,
@@ -52,8 +53,9 @@ export default function Page() {
         localStorage.removeItem("carts");
         router.push("/");
       }
-    } catch (error: any) {
-      console.error(error.response?.data || error.message);
+    } catch (error) {
+      const err = error as AxiosError;
+      console.error(err.response?.data || err.message);
     }
   };
 

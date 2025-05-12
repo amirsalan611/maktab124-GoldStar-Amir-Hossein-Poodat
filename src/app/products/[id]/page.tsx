@@ -8,13 +8,13 @@ import ProductCard from "@/components/Shared/ProductCard/ProductCard";
 import Button from "@/components/Shared/button/Button";
 import { productPageLocalization } from "@/constants/Localizations/Localization";
 import FilterSection from "@/components/filterSectionOfProductPage/filterSection";
-import { Category, Product, Subcategory } from "@/types/product";
+import { Category, product, Subcategory } from "@/types/product";
 
 export default function Page(props: { params: Promise<{ id: string }> }) {
   const { id } = use(props.params);
   const [page, setPage] = useState(1);
   const [type, setType] = useState<"category" | "subcategory" | null>(null);
-  const [allProducts, setAllProducts] = useState<Product[]>([]);
+  const [allProducts, setAllProducts] = useState<product[]>([]);
   const [refetch, setRefetch] = useState(false);
   const [filters, setFilters] = useState({
     sort: "",
@@ -64,13 +64,13 @@ export default function Page(props: { params: Promise<{ id: string }> }) {
     if (products?.data?.products) {
       let filteredProducts = products.data.products;
 
-      if (filters.sort === "1") {
+      if (filters.sort === "lowest") {
         filteredProducts = [...filteredProducts].sort((a, b) => {
           const priceA = a.price - (a.price / 100) * a.discount;
           const priceB = b.price - (b.price / 100) * b.discount;
           return priceA - priceB;
         });
-      } else if (filters.sort === "2") {
+      } else if (filters.sort === "highest") {
         filteredProducts = [...filteredProducts].sort((a, b) => {
           const priceA = a.price - (a.price / 100) * a.discount;
           const priceB = b.price - (b.price / 100) * b.discount;
@@ -128,8 +128,8 @@ export default function Page(props: { params: Promise<{ id: string }> }) {
         />
       </div>
       {allProducts?.length ? (
-        <div className="grid grid-cols-4 gap-4 gap-y-10 w-full">
-          {allProducts.map((product: Product) => (
+        <div className="grid grid-cols-4 gap-4 gap-y-10 w-full justify-items-center">
+          {allProducts.map((product: product) => (
             <div key={product._id}>
               <ProductCard product={product} />
             </div>

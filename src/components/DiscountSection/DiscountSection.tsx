@@ -10,8 +10,7 @@ import { Autoplay } from "swiper/modules";
 import more from "../../../public/image/SwiperImages/discount.png";
 import Button from "../Shared/button/Button";
 import { useRouter } from "next/navigation";
-import { Product } from "@/types/product";
-
+import { product } from "@/types/product";
 
 export default function DiscountSection() {
   const router = useRouter();
@@ -56,7 +55,7 @@ export default function DiscountSection() {
           slidesPerView={4}
         >
           {data?.map(
-            (product: Product) =>
+            (product: product) =>
               product.quantity > 0 && (
                 <SwiperSlide key={product._id}>
                   <ProductCard product={product} />

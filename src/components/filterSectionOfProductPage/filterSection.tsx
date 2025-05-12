@@ -3,6 +3,7 @@ import Button from "../Shared/button/Button";
 import { productPageLocalization } from "@/constants/Localizations/Localization";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
+import { Product } from "@/types/product";
 
 interface Filter {
   sort: string;
@@ -16,7 +17,7 @@ interface FilterSectionProps {
   filters: Filter;
   setFilters: (filters: Filter) => void;
   setPage: (page: number) => void;
-  setAllProducts: (products: any[]) => void;
+  setAllProducts: (products: Product[]) => void;
   refetch: boolean;
   setRefetch: (refetch: boolean) => void;
 }
@@ -89,8 +90,8 @@ export default function FilterSection({
         <option value="" hidden>
           {productPageLocalization.sort}
         </option>
-        <option value="1">{productPageLocalization.lowest}</option>
-        <option value="2">{productPageLocalization.highest}</option>
+        <option value="lowest">{productPageLocalization.lowest}</option>
+        <option value="highest">{productPageLocalization.highest}</option>
       </select>
       <div className="flex flex-col gap-4 w-64">
         <div className="flex items-center justify-center gap-2">

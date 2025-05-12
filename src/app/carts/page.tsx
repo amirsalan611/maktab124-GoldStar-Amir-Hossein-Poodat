@@ -1,15 +1,20 @@
 "use client";
 import PeySection from "@/components/cartPageComponents/peySection/peySection";
 import ProductCart from "@/components/cartPageComponents/productCart/productCart";
-import Button from "@/components/Shared/button/Button";
 import { cartPageLocalization } from "@/constants/Localizations/Localization";
 import { getProductById } from "@/services/auth/getProductById/getProductById";
-import React, { use, useEffect, useState } from "react";
+import { product } from "@/types/product";
+import React, { useEffect, useState } from "react";
+
+interface Cart {
+  product: string;
+  count: number;
+  color: string;
+}
 
 export default function page() {
-  const [carts, setCarts] = useState<any[]>([]);
-  const [products, setProducts] = useState<any[]>([]);
-console.log(products)
+  const [carts, setCarts] = useState<Cart[]>([]);
+  const [products, setProducts] = useState<product[]>([]);
   useEffect(() => {
     const carts = localStorage.getItem("carts");
     if (carts) {
@@ -27,17 +32,17 @@ console.log(products)
     fetchProducts();
   }, [carts]);
 
-    const handleDelete = (id:string,color:string) => {
-      const updatedCart = carts.filter(
-        (item) => !(item.product === id && item.color === color)
-      );
-      const updatedProducts = products.filter(
-        (item) => !(item.product === id && item.color === color)
-      );
-      localStorage.setItem("carts", JSON.stringify(updatedCart));
-      setCarts(updatedCart);
-      setProducts(updatedProducts);
-    };
+  const handleDelete = (id: string, color: string) => {
+    const updatedCart = carts.filter(
+      (item) => !(item.product === id && item.color === color)
+    );
+    const updatedProducts = products.filter(
+      (item) => !(item._id === id && item.colors?.includes(color))
+    );
+    localStorage.setItem("carts", JSON.stringify(updatedCart));
+    setCarts(updatedCart);
+    setProducts(updatedProducts);
+  };
 
   return (
     <div className="p-10 flex gap-10 justify-between">
@@ -75,7 +80,10 @@ console.log(products)
                     (sum, product) =>
                       sum +
                       +product.price *
-                        +carts.find((cart) => cart.product === product._id).count,
+                        +(
+                          carts.find((cart) => cart.product === product._id)
+                            ?.count ?? 0
+                        ),
                     0
                   )
                   .toLocaleString()}

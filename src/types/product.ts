@@ -1,4 +1,4 @@
-export interface Product {
+export interface product {
   rating: Rating;
   _id: string;
   category: Category;
