@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import discount from "../../../public/image/Pink Brown Cosmetic Sales Promotion Banner.jpg";
 import { product } from "@/types/product";
-
+import Image from "next/image";
 
 export default function Page() {
   const [allProducts, setAllProducts] = useState<product[]>([]);
@@ -61,16 +61,18 @@ export default function Page() {
       <div className="w-screen h-full container"></div>
       <div className="p-10 flex flex-col gap-10">
         <div className="z-20  overflow-hidden">
-          <img
+          <Image
             src={discount.src}
             alt="discount image"
             className="w-1/2 rounded-4xl m-auto"
+            width={1000}
+            height={1000}
           />
         </div>
         {allProducts?.length ? (
           <div className="grid grid-cols-4 gap-4 gap-y-10 w-full bg-white z-10 justify-items-center p-5 shadow-white shadow-2xl rounded-4xl">
             {allProducts.map((product: product) => (
-              <div className="bg-white" key={product._id} >
+               <div className="bg-white" key={product._id} >
                 <ProductCard product={product} />
               </div>
             ))}

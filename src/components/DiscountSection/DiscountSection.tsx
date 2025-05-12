@@ -11,6 +11,7 @@ import more from "../../../public/image/SwiperImages/discount.png";
 import Button from "../Shared/button/Button";
 import { useRouter } from "next/navigation";
 import { product } from "@/types/product";
+import Image from "next/image";
 
 export default function DiscountSection() {
   const router = useRouter();
@@ -33,10 +34,11 @@ export default function DiscountSection() {
           className="flex flex-col items-center justify-center gap-2 rounded-3xl py-10 px-5"
           key="more"
         >
-          <img
+          <Image
             src={more.src}
             alt="more"
             width={400}
+            height={400}
             className="object-cover rounded-4xl"
           />
           <Button

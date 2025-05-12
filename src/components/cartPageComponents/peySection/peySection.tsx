@@ -3,16 +3,13 @@ import Button from "@/components/Shared/button/Button";
 import { cartPageLocalization } from "@/constants/Localizations/Localization";
 import { useRouter } from "next/navigation";
 import { product } from "@/types/product";
-import { Cart } from "@/types/Cart";
 
 import React from "react";
 
 export default function PeySection({
   products,
-  carts,
 }: {
   products: product[];
-  carts: Cart[];
 }) {
   const router = useRouter();
   return (

@@ -7,7 +7,7 @@ import { product } from "@/types/product";
 import React, { useEffect, useState } from "react";
 import { Cart } from "@/types/Cart";
 
-export default function page() {
+export default function CartsPage() {
   const [carts, setCarts] = useState<Cart[]>([]);
   const [products, setProducts] = useState<product[]>([]);
   useEffect(() => {
@@ -102,7 +102,7 @@ export default function page() {
             </div>
           </div>
         </div>
-        <PeySection products={products} carts={carts} />
+        <PeySection products={products}/>
       </div>
     </div>
   );

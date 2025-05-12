@@ -7,10 +7,10 @@ import React from "react";
 import Button from "../button/Button";
 import { useRouter } from "next/navigation";
 import discount from "../../../../public/image/off.png";
-import { Product } from "@/types/product";
+import { product } from "@/types/product";
 
 
-export default function ProductCard({ product }: { product: Product }) {
+export default function ProductCard({ product }: { product: product }) {
   const router = useRouter();
   return (
     <div className="flex flex-col items-center justify-center bg-purple-50 border border-[#B2A5FF] gap-2 rounded-3xl p-4 relative w-[400px] h-[480px] hover:scale-105 transition-all duration-300">
